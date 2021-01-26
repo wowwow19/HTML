@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+            pixel : 점
+            resolution : 해상도
+        */
+        table, th, td {border: 1px solid black;}
+        table {border-collapse: collapse;}
+        th, td {padding: 10px;}
+    </style>
+</head>
+<body>
+    <!-- <table border="1" cellspacing="0" cellpadding="10"> -->
+    <table>
+        <tr>
+            <th>제목 셀</th>
+            <td>1행 2열</td>
+            <td>1행 3열</td>
+        </tr>
+        <tr>
+            <th>제목 셀</th>
+            <td>2행 2열</td>
+            <td>2행 3열</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th rowspan="2">제목 셀</th>
+            <td>1행 2열</td>
+            <td>1행 3열</td>
+        </tr>
+        <tr>
+            <td colspan="2">2행 2열</td>
+        </tr>
+    </table>
+
+</body>
+</html>
