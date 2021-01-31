@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Place now</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("images/background_home_map.png");
+            background-repeat: no-repeat;
+            background-size: 360px 600px;
+            background-position: center top;
+            padding-top: 10px;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif, ;
+        }
+        .menu-button {
+            width: 360px;
+            height: 40px;
+        }
+        .logo {
+            margin-top: 40px;
+            width: 200px;
+            height: 100px;
+        }
+        .search-map {
+            display: block;
+            margin-top: -20px;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+        .btm-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(51,51,51);
+            margin-top: -5px;
+        }
+        .btm-button {
+            width: 35px;
+            height: 35px;
+            transform: rotate(180deg);
+        }
+        .btm-bar span {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <img src="images/topBar.png" class="menu-button" alt="" usemap="#image-map">
+        <map name="image-map">
+            <area target="" alt="" title="" href="" coords="303,2,347,39" shape="rect">
+        </map>
+    </div>
+    <div>
+        <a href="home.html"><img src="images/logo.png" class="logo" alt="기본로고"></a>
+    </div>
+    <div class="search-map">
+        <img src="images/map.png" usemap="#image-map2" width="250px">
+        <map name="image-map2">
+            <area target="" alt="서울" title="서울" href="" coords="68,57,104,73" shape="rect">
+            <area target="" alt="인천" title="인천" href="" coords="18,79,54,93" shape="rect">
+            <area target="" alt="경기" title="경기" href="" coords="83,93,117,107" shape="rect">
+            <area target="" alt="강원" title="강원" href="" coords="136,56,174,72" shape="rect">
+            <area target="" alt="대전충청" title="대전충청" href="" coords="27,149,79,167" shape="rect">
+            <area target="" alt="대구경북" title="대구경북" href="" coords="179,148,229,167" shape="rect">
+            <area target="" alt="광주전라" title="광주전라" href="" coords="17,224,70,243" shape="rect">
+            <area target="" alt="부산경남" title="부산경남" href="" coords="170,232,222,250" shape="rect">
+            <area target="" alt="제주" title="제주" href="" coords="8,327,46,344" shape="rect">
+        </map>
+    </div>
+    <div class="btm-bar">
+        <span>검색하여 찾기</span>
+        <a href="home.html"><img src="images/underCross.png" class="btm-button" alt=""></a>
+    </div>
+</body>
+</html>

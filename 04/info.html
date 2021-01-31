@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        4-1. 폼 만들기
+        <form> : 여러 폼 관련 요소들을 입력
+            method(http method) : 서버측으로 데이터를 넘겨줄 방식 
+                "get" : 조회기능, url에 노출
+                "post" : 입력기능, 입력내용이 드러나지 않고 헤더에 포함시켜 값 전송
+            name : 폼을 구분하기 위한 이름
+            action : 서버측 이름(프로그램)
+            target : action에 지정한 내용을 다른 프레임에서 열도록 지정
+        <input> : 사용자의 입력값을 받는 태그
+            type : 입력값의 형태를 지정
+        <label> : 텍스트나 이미지에 <input> 연결
+        <fieldset> : 폼 요소를 그룹단위로 나눔
+        <legend> : 범례 표기
+
+        4-2. input 태그
+        - 똑같은 폼 요소가 여러번 반복
+            id : 중복불가능(JS에서 사용, 카멜식 표기)
+            name : 중복가능(폼에서만 사용)
+            class : 중복가능(CSS에서 사용, 하이픈 사용)
+
+            hidden : 전송시 숨겨져 있지만 서버로 함께 전송
+            text : 한 줄짜리 텍스트 필드
+                name : 이름
+                size : 텍스트 인풋에 대한 크기
+                value : 전송될 값
+                maxlength : 최대 길이
+            password : 한 줄짜리 비밀번호 입력필드
+
+        4-3. input태그의 다양한 속성
+        autofocus : 자동 포커스
+        placeholder : 힌트 표시
+        readonly : 읽기 전용(값 전송O)
+        disable : 사용 불가(값 전송X)
+        require : 필수입력 필드
+        min, max, step : 최소, 최대, 증감단위
+        size, minlength, maxlength : 크기, 최소길이, 최대길이
+        
+        4-4. 여러데이터 나열해서 보여주기
+        <select> : 드롭다운 태그
+        <optgroup> : 드롭다운 값 집합에 대한 태그
+        <option> : 드롭다운 값
+            multiple : 복수로 표현
+            size : 한번에 표시할 크기
+            selected : 사전에 선택할 값
+        <datalists> : 데이터목록
+        <textarea> : 긴 글 작성폼
+
+        4-5. 기타 폼 요소
+        <button> : button, submit, reset 기능
+        <output> : 결과 표시
+        <progress> : 진행상태 표시
+        <meter> : 값의 비율 표시
+    -->
+</body>
+</html>

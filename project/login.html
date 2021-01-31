@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Place now</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("images/background_login.png");
+            background-repeat: no-repeat;
+            background-size: 360px 500px;
+            background-position: center top;
+            padding-top: 10px;
+            margin: 0 auto;
+            font-family: 'Gothic A1', sans-serif;
+        }
+        fieldset {
+            border: 0px;
+        }
+        legend {
+            visibility: hidden;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            margin-top: -15px;
+            padding: 0px;
+        }
+        li {
+            margin-top: 15px;
+            list-style: none;
+            font-size: 11px;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: rgb(48, 47, 47);
+        }
+        span {
+            color: rgb(48, 47, 47);
+        }
+        .menuButton {
+            width: 360px;
+            height: 40px;
+        }
+        .logo {
+            margin-top: 40px;
+            width: 200px;
+            height: 100px;
+        }
+        .search {
+            display: block;
+            margin-top: 5px;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+        .input-bar {
+            border: 0px;
+            border-radius: 50px;
+            width: 150px;
+            height: 35px;
+            font-size: 13px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .input-btn {
+            position: absolute;
+            margin-left: -40px;
+            margin-top: -2px;
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <img src="images/topBar.png" class="menuButton" alt="" usemap="#image-map">
+        <map name="image-map">
+            <area target="" alt="" title="" href="" coords="303,2,347,39" shape="rect">
+        </map>
+    </div>
+    <div>
+        <a href="home.html"><img src="images/logo.png" class="logo" alt="기본로고"></a>
+    </div>
+    <div class="login-form">
+        <form method="POST">
+            <fieldset>
+                <legend>로그인</legend>
+                <ul>
+                    <li>
+                        <label for="id">
+                            <img src="images/user-icon.png" class="icon" alt="">
+                            <input class="input-bar" type="email" placeholder="이메일주소" name="id">
+                        </label>
+                    </li>
+                    <li>
+                        <img src="images/pw-icon.png" class="icon" alt="">
+                        <input class="input-bar" type="password" placeholder="비밀번호" name="pw">
+                        <input type="image" class="input-btn" src="images/login-btn.png">
+                    </li>
+                    <li>
+                        <span style="margin-right: 10px;">Place now가 처음이신가요?</span>
+                        <a href=""><span style="margin-left: 10px;"><b>회원가입</b></span></a>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

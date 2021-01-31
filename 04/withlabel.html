@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        li {
+            list-style-type: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend><h3>수강 분야 (다수 선택가능)</h3></legend>
+            <ul>
+                <li>
+                    <label><input type="checkbox" name="category" value="grm" checked> 문법</label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="category" value="wr"> 작문</label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="category" value="rd" checked> 독해</label>
+                </li>
+            </ul>
+        </fieldset>
+        <hr>
+        <fieldset>
+            <legend><h3>수강 과목 (1과목만 선택가능)</h3></legend>
+            <ul>
+                <li>
+                    <label><input type="radio" name="subject" value="eng">영어회화</label>
+                </li>
+                <li>
+                    <label><input type="radio" name="subject" value="ch">중국어회화</label>
+                </li>
+                <li>
+                    <label><input type="radio" name="subject" value="jp">일본어회화</label>
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit" value="수강신청">
+    </form>
+</body>
+</html>

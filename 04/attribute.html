@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[name="name"] {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <h3>여름방학 특강신청</h3>
+        <fieldset>
+            <legend>수강과목</legend>
+            <label for="">영어회화(초급) <input type="text" name="subject" value="오전 09:00 ~ 11:00" disabled></label>
+        </fieldset>
+        <fieldset>
+            <legend>신청자</legend>
+            <label for="">이름 <input type="text" name="name" autofocus required placeholder="필수" minlength="2" maxlength="10"></label><br>
+            <label for="">학번 <input type="text" name="no" placeholder="하이픈없이 입력"></label><br>
+            <label for="">학과 <input type="text" name="dept"></label>
+            <input type="file">
+        </fieldset>
+        <input type="submit" value="첫번째 전송버튼">
+        <input type="submit" value="두번째 전송버튼" formaction="search.jsp" formnovalidate>
+    </form>
+</body>
+</html>

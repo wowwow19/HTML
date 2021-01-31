@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/modernizr-custom.js"></script>
+</head>
+<body>
+    <h1>SVG 이미지</h1>
+    <img src="images/muffin.svg" alt="">
+    <script>
+        if(!Modernizr.svg) {
+            $("img").attr("src", "images/muffin.png");
+        }
+    </script>
+    <!-- Modernizr.js : svg -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button[type='submit']:hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" onclick="alert('Hello Button')">버튼태그</button>
+    <input type="button" onclick="confirm('네이버로 이동?')" value="인풋버튼">
+    <input type="button" onclick="prompt('값을 입력하세요')" value="인풋버튼">
+
+    <button type="submit"><img src="images/tick.png">전송하기</button>
+
+    <form action="" oninput="result.value = parseInt(num1.value) + parseInt(num2.value)">
+        <input type="number" name="num1" value="0"> +
+        <input type="number" name="num2" value="0"> =
+        <output name="result"></output>
+    </form>
+</body>
+</html>

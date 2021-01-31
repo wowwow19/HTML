@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="dept">학과</label>
+        <select name="dept" id="dept">
+            <optgroup label="공과대학">
+                <option value="arch">건축공학과</option>
+                <option value="mach">기계공학과</option>
+                <option value="indu">산업공학과</option>
+                <option value="elec">전기전자공학과</option>
+                <option value="comp" selected>컴퓨터공학과</option>
+                <option value="chem">화학공학과</option>
+            </optgroup>
+            <optgroup label="인문대학">
+                <option value="hist">사학과</option>
+                <option value="lang">어문학부</option>
+                <option value="phil">철학과</option>
+                <option value="phil">철학과</option>
+            </optgroup>
+        </select>
+        <input type="text" list="dept2">
+        <datalist id="dept2">
+            <option value="arch">건축공학과</option>
+            <option value="mach">기계공학과</option>
+            <option value="indu">산업공학과</option>
+            <option value="elec">전기전자공학과</option>
+            <option value="comp" selected>컴퓨터공학과</option>
+            <option value="chem">화학공학과</option>            
+        </datalist>
+        <!-- 게시판 글 작성시 사용하는 태그 -->
+        <br>
+        <textarea name="content" id="" cols="36" rows="15">기본값</textarea>
+        <br>
+        <button>전송</button>
+    </form>
+</body>
+</html>
