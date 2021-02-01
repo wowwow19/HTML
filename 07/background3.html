@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body div {
+      background-image: url(images/bg2.jpg);
+      background-repeat: no-repeat;
+      width: 500px;
+      height: 500px;
+      border: 10px dotted black;
+      padding: 15px;
+    }
+    .bg1 {
+                        /* 좌우  상하 */
+      background-position: top left;
+    }
+    .bg2 {
+      background-position: center;
+    }
+    /* left, right, center, 크기, 백분율 */
+    /* top, bottom, center, 크기, 백분율 */
+
+    /* 테두리까지 배경이미지 적용 */
+    .border {
+      background-origin: border-box;
+    }
+    /* 패딩부분까지만 배경이미지 적용 */
+    .padding {
+      background-origin: padding-box;
+    }
+    /* 컨텐츠부분까지만 배경이미지 적용 */
+    .content {
+      background-origin: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg1 border">
+    <h1>초콜릿(Chocolate)</h1>
+    <p>초콜릿 ... ...</p>
+  </div>
+  <div class="bg1 padding">
+    <h1>초콜릿(Chocolate)</h1>
+    <p>초콜릿 ... ...</p>
+  </div>
+  <div class="bg1 content">
+    <h1>초콜릿(Chocolate)</h1>
+    <p>초콜릿 ... ...</p>
+  </div>
+  <div class="bg2">
+    <h1>초콜릿(Chocolate)</h1>
+    <p>초콜릿 ... ...</p>
+  </div>
+</body>
+</html>

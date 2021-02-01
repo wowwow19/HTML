@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1 {
+      color: rgb(0, 200, 0);
+    }
+    h2 {
+      color: blue;
+    }
+    .accent {
+      color: #ff0000;
+    }
+    /* text-decoration : none, underline, line-through, overline */
+    a {
+      text-decoration: none;
+    }
+    .edited {
+      text-decoration: line-through;
+    }
+    .trans1 {
+      text-transform: uppercase;
+    }
+    .trans2 {
+      text-transform: capitalize;
+    }
+    /* .trans3 {
+      text-transform: full-width;
+    } */
+    .shadow1 {
+      font-size: 3em;
+      color: #000;
+      text-shadow: 5px 5px 3px #f00;
+                /* x축, y축, 블러효과 */
+    }
+    .shadow-wrap {
+      background-color: black;
+      padding: 15px;
+    }
+    .shadow-wrap h1 {
+      color: black;
+      font-size: 4em;
+      /* 그림자를 이용한 불타는 효과 */
+      text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, 
+                  -2px -15px 11px #f80, 2px -19px 18px #f20;
+    }
+  </style>
+</head>
+<body>
+  <h1>세계 10대 슈퍼푸드</h1>
+  <img src="images/galic.jpg" alt="마늘">
+  <h2>마늘(Garlic)</h2>
+  <p>일해 백리는 ... ... </p>
+  <p>마늘 특유의 아린맛은 <span class="accent">알리신</span>이라는 성분 때문으로 ... ...</p>
+
+  <h2>토마토(tomato)</h2>
+  <p>[<a href="#">외부링크</a>]</p>
+  <p>토마토는 비타민 A, C가 풍부한 <span class="edited">과일이다.</span> 채소다 ... ...</p>
+
+  <ul>
+    <li class="trans1">
+      html
+    </li>
+    <li class="trans1">
+      CSS
+    </li>
+    <li class="trans2">
+      javascript
+    </li>
+    <li class="trans3">
+      world wide web!
+    </li>
+  </ul>
+
+  <h1 class="shadow1">HTML5</h1>
+  <div class="shadow-wrap">
+    <h1>HTML5</h1>
+  </div>
+</body>
+</html>

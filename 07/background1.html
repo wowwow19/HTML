@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #09f;
+    }
+    .box {
+      width: 300px;
+      border: 5px dotted black;
+      padding: 15px;
+      /* background-color: transparent; 기본값 */
+      background-color: #fff;
+      margin: 15px auto;
+    }
+    /* 테두리까지 배경색 적용 */
+    .clip1 {
+      background-clip: border-box;
+    }
+    /* 패딩부분까지만 배경색 적용 */
+    .clip2 {
+      background-clip: padding-box;
+    }
+    /* 컨텐츠부분까지만 배경색 적용 */
+    .clip3 {
+      background-clip: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box clip1">
+    <h2>여기는 제목 부분입니다.</h2>
+    <p>여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.</p>
+  </div>
+  <div class="box clip2">
+    <h2>여기는 제목 부분입니다.</h2>
+    <p>여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.</p>
+  </div>
+  <div class="box clip3">
+    <h2>여기는 제목 부분입니다.</h2>
+    <p>여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.여기는 본문 부분입니다.</p>
+  </div>
+  
+</body>
+</html>

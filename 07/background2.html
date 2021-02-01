@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    /* background-image :  url();*/
+    body {
+      /* background-image: url("images/bg1.png");
+      background-repeat: no-repeat; */
+    }
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+      margin: 10px auto;
+      background: url("images/bg4.jpg") no-repeat left top;
+    }
+    /* 기본값, 실제 이밎 */
+    .bg1 {
+      background-size: auto;
+    }
+    .bg2 {
+      background-size: 200px 150px;
+    }
+    .bg3 {
+      background-size: 60% 40%;
+    }
+    /* 요소를 벗어나지 않는 크기로 확대 또는 축소 */
+    .bg4 {
+      background-size: contain;
+    }
+    /* 요소를 다 채우는 크기로 확대 또는 축소 */
+    .bg5 {
+      background-size: cover;
+    }
+    .bg6 {
+      background-size: 100% 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box bg1">bg1 auto</div>
+  <div class="box bg2">bg2 200px 150px</div>
+  <div class="box bg3">bg3 60% 40%</div>
+  <div class="box bg4">bg4 contain</div>
+  <div class="box bg5">bg5 cover</div>
+  <div class="box bg6">bg6 100% 100%</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>font</title>
+  <style>
+    /* 
+      font-size : <절대크기> | <상대크기> | <크기> | <백분율>
+        절대크기 : xx-small > x-small > small > medium > large > x-large > xx-large
+        상대크기 : smaller, larger
+        크기 : 
+          - 단위
+            em : 사용된 폰트의 M의 너비 값 1
+            ex : 사용된 폰트의 x의 높이 값 1
+            px : 픽셀
+            pt : 포인트, 일반문서에서 많이 사용
+              백분율 : 100% = 1em
+      font-weight : 100~900 bold, bolder, lighter, normal
+        normal : 기본값, 400
+        bold : 700
+      font-variant : small-caps
+      font-style : normal, italic : 폰트자체에서 지원, oblique : CSS에서 글꼴 기울이기
+     */
+    p {
+      /* font-size: medium; 사용 X */
+    }
+    span.dadada {
+      font-size: 1.5em;
+    }
+    span.bold {
+      font-weight: bold;
+    }
+    .vari {
+      font-variant: small-caps;
+    }
+    .style {
+      font-style: italic;
+    }
+    .font {
+      font: italic small-caps 2.5em/12px 궁서; /* 축약형 표기 */
+    }
+  </style>
+</head>
+<body>
+  <p>문단테스트</p>
+  <h1>제목 테스트</h1>
+  <h1>가가가나나나<span class="dadada">다다다</span></h1>
+  <p>글자 크기를<span class="bold">굵게</span>적용</p>
+  <p>ABCDE abcde</p>
+  <p class="vari">ABCDE abcde</p>
+  <p class="style">ABCDE abcde</p>
+  <p class="font">가나다라마바사 ABCDEFT</p>
+
+</body>
+</html>
