@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrapper {
+      height: 3000px;
+    }
+    .box1 {
+      height: 100px;
+      width: 100px;
+      float: left;
+      margin: 10px;
+      background: #ffb;
+      left: 30px;
+      top: 50px;
+    }
+    .box2 {
+      height: 100px;
+      width: 200px;
+      float: left;
+      margin: 10px;
+      background: #77f;
+      position: relative;
+      /* relative, fixed, absolute일 때만 정의 가능 */
+      left: -30px;
+      top: 50px;
+    }
+    .box3 {
+      height: 100px;
+      width: 100px;
+      float: left;
+      background: #f88;
+      position: absolute;
+      /* 보이는 화면에서 값만큼 띄어서 배치 */
+      bottom: 100px;
+      right: 100px;
+      /* 요소들의 겹침 순서를 조정 */
+      z-index: 5;
+    }
+    .box4 {
+      height: 100px;
+      width: 100px;
+      float: left;
+      background: #cef;
+      position: absolute;
+      /* 보이는 화면에서 값만큼 띄어서 배치 */
+      bottom: 150px;
+      right: 150px;
+    }
+    .box5 {
+      height: 100px;
+      width: 100px;
+      float: left;
+      background: orange;
+      position: fixed;
+      bottom: 150px;
+      right: 150px;
+    }
+    .outer {
+      width: 500px;
+      height: 500px;
+      border: 1px solid;
+    }
+    .inner {
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+  </div>
+  
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+</body>
+</html>

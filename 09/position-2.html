@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .outer {
+      width: 500px;
+      height: 500px;
+      border: 1px solid;
+      /* 하위 요소의 absolute 위치범위 제한 */
+      position: relative;
+    }
+    .outer div {
+      position: absolute;
+    }
+    .inner1 {
+      width: 100px;
+      height: 100px;
+      background: green;
+      left: 0;
+      top: 0;
+    }
+    .inner2 {
+      width: 100px;
+      height: 100px;
+      background: red;
+      right: 0;
+      bottom: 0;
+    }
+    .inner3 {
+      width: 100px;
+      height: 100px;
+      background: blue;
+      right: 0;
+      top: 0;
+    }
+    /* 말풍선 만들기 */
+    .balloon {
+      width: 200px;
+      height: 100px;
+      border-radius: 8px;
+      background: black;
+      padding: 30px;
+    }
+    .balloon p {
+      text-align: center;
+      color: white;
+    }
+    /* 이등변 삼각형 만들기 */
+    .tri {
+      border: 20px solid transparent;
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border-top-color: black;
+      border-width: 30px 15px;
+      position: relative;
+      left: 80px;
+      /* transform: rotate(180deg); */
+    }
+  </style>
+</head>
+<body>
+  <div class="outer">
+    <div class="inner1"></div>
+    <div class="inner2"></div>
+    <div class="inner3"></div>
+  </div>
+  <div class="balloon">
+    <p>말풍선</p>
+  </div>
+  <div class="tri"></div>
+</body>
+</html>

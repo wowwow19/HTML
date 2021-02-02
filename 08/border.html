@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div div {
+      width: 200px;
+      height: 100px;
+      display: inline-block;
+      margin: 15px;
+      border-width: 5px;
+      border-style: dashed;
+    }
+    .border2 div {
+      border-style: dashed;
+    }
+    /* 축약형 border: 너비, 스타일, 색상;*/
+    .border1 .box1 {
+      border: 3px groove red;
+    }
+    .border1 .box2 {
+      border-style: ridge;
+    }
+    .border1 .box3 {
+      border-style: inset;
+    }
+    .border1 .box4 {
+      border-style: outset;
+    }
+    .border2 .box1 {
+      /* 상하, 좌우 */
+      border-color: red blue;
+    }
+    .border2 .box2 {
+      /* 상, 하, 좌우 */
+      border-color: red blue black;
+    }
+    .border2 .box3 {
+      border-color: green;
+      border-top-color: blueviolet;
+      border-bottom-color: coral;
+      border-top-style: double;
+      border-bottom-style: double;
+    }
+    .border2 .box4 {
+      border-color: yellow;
+      /* 상, 우, 하, 좌(시계방향) */
+      border-color: red blue black #eee;
+    }
+    /* border: none;(기본값)
+              hidden : border-collapse시 다른 테두리도 안보임 */
+
+    .border3 .box1 {
+      border-radius: 15px;
+    }
+    .border3 .box2 {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+    .border3 .box3 {
+                  /* top-left 부터 시계방향 */
+      border-radius: 15px 10px 30px 50px;
+    }
+    .border3 .box4 {
+      border-top-left-radius: 100px 50px;
+    }
+    /* 모서리를 깎아 정원 만들기 */
+    .border3 .box5 {
+      width: 100px;
+      border-radius: 50%;
+      border-style: solid;
+    }
+  </style>
+</head>
+<body>
+  <!-- border-style -->
+  <div class="border1">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+  </div>
+  <!-- border-color -->
+  <div class="border2">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+  </div>
+  <!-- border-radius -->
+  <div class="border3">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+  </div>
+</body>
+</html>

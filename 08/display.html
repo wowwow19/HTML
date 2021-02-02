@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style-type: none;
+      background-color: #09f;
+      padding: 20px;
+      text-align: center;
+    }
+    ul li {
+      display: inline;
+      margin: 20px;
+    }
+    ul li a {
+      text-decoration: none;
+      color: #eee;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    ul li a:hover {
+      color: #ff9;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+    }
+    .box1 {
+      background-color: #f88;
+    }
+    .box2 {
+      background-color: #88f;
+    }
+    .box3 {
+      background-color: #8a8;
+    }
+    .dis {
+      display: none;
+    }
+    .vis {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="">애완견 종류</a></li>
+    <li><a href="">입양하기</a></li>
+    <li><a href="">건강돌보기</a></li>
+    <li><a href="">더불어살기</a></li>
+  </ul>
+
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+  <hr>
+  <div class="box1">display</div>
+  <div class="box2 dis">display-none</div> <!-- 배치X -->
+  <div class="box3">display</div>
+  <hr>
+  <div class="box1">visible</div>
+  <div class="box2 vis">hidden</div> <!-- 배치O, 자주사용X-->
+  <div class="box3">visible</div>
+</body>
+</html>
