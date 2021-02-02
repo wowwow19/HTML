@@ -3,6 +3,10 @@
   <meta charset="UTF-8">
   <title>Place now</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
     body {
       display: flex;
       flex-direction: column;
@@ -58,9 +62,29 @@
     .btm-text {
       font-size: 12px;
     }
+    @keyframes moving-btn {
+      0% {
+        transform: none;
+      } 
+      100% {
+        transform: translate(0,0);
+      }
+    }
+    @keyframes moving-btn-reset {
+      0% {
+        transform: none;
+      }
+      100% {
+        transform: translate(0, 5px);
+      }
+    }
     .btm-btn {
       width: 35px;
       height: 35px;
+      animation: moving-btn 1s;
+    }
+    .btm-btn:hover {
+      animation: moving-btn-reset 1s infinite ease;
     }
   </style>
 </head>
@@ -68,7 +92,7 @@
   <div class="top">
     <img src="images/home-menu-btn.png" class="top-btn" alt="" usemap="#image-map">
     <map name="image-map">
-      <area target="" alt="" title="" href="menu.html" coords="303,2,347,39" shape="rect">
+      <area target="" alt="" title="" href="menu-before-login.html" coords="303,2,347,39" shape="rect">
     </map>
   </div>
 
@@ -86,7 +110,7 @@
   <div class="btm">
     <span class="btm-text">지도로 보기</span>
     <a href="home-map.html">
-      <img src="images/home-btm-btn.png" class="btm-btn" alt="">
+      <img src="images/home-btm-down-btn.png" class="btm-btn" alt="">
     </a>
   </div>
 </body>

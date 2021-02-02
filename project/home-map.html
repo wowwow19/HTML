@@ -2,7 +2,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Place now</title>
+  <script type="text/javascript">
+    function changeImg(img){
+      var mapimg = document.getElementById('map');
+      mapimg.src = img;
+    }
+    function changeImg1(obj, img){
+      var mapimg1 = document.getElementById('map1');
+      mapimg1.src = img;
+    }
+  </script>    
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
     body {
       display: flex;
       flex-direction: column;
@@ -34,13 +48,32 @@
       color: #333;
       margin-top: -5px;
     }
+    .btm-text {
+      font-size: 12px;
+    }
+    @keyframes moving-btn {
+      0% {
+        transform: none;
+      } 
+      100% {
+        transform: translate(0,0);
+      }
+    }
+    @keyframes moving-btn-reset {
+      0% {
+        transform: none;
+      }
+      100% {
+        transform: translate(0, -5px);
+      }
+    }
     .btm-btn {
       width: 35px;
       height: 35px;
-      transform: rotate(180deg);
+      animation: moving-btn 1s;
     }
-    .btm-text {
-      font-size: 12px;
+    .btm-btn:hover {
+      animation: moving-btn-reset 1s infinite ease;
     }
   </style>
 </head>
@@ -48,7 +81,7 @@
   <div class="top">
     <img src="images/home-menu-btn.png" class="top-btn" alt="" usemap="#image-map">
     <map name="image-map">
-      <area target="" alt="" title="" href="menu.html" coords="303,2,347,39" shape="rect">
+      <area target="" alt="" title="" href="menu-before-login.html" coords="303,2,347,39" shape="rect">
     </map>
   </div>
 
@@ -57,24 +90,24 @@
   </div>
 
   <div class="search">
-    <img src="images/home-map.png" class="search-map" usemap="#image-map2">
+    <img src="images/home-map.png" class="search-map" usemap="#image-map2" id="map">
     <map name="image-map2">
-      <area target="" alt="서울" title="서울" href="" coords="68,57,104,73" shape="rect">
-      <area target="" alt="인천" title="인천" href="" coords="18,79,54,93" shape="rect">
-      <area target="" alt="경기" title="경기" href="" coords="83,93,117,107" shape="rect">
-      <area target="" alt="강원" title="강원" href="" coords="136,56,174,72" shape="rect">
-      <area target="" alt="대전충청" title="대전충청" href="" coords="27,149,79,167" shape="rect">
-      <area target="" alt="대구경북" title="대구경북" href="" coords="179,148,229,167" shape="rect">
-      <area target="" alt="광주전라" title="광주전라" href="" coords="17,224,70,243" shape="rect">
-      <area target="" alt="부산경남" title="부산경남" href="" coords="170,232,222,250" shape="rect">
-      <area target="" alt="제주" title="제주" href="" coords="8,327,46,344" shape="rect">
+      <area target="" alt="서울" title="서울" href="place-list-seoul.html" coords="68,57,104,73" shape="rect" onmouseover="changeImg('images/home-map-seoul-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="인천" title="인천" href="" coords="18,79,54,93" shape="rect" onmouseover="changeImg('images/home-map-incheon-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="경기" title="경기" href="" coords="83,93,117,107" shape="rect" onmouseover="changeImg('images/home-map-gyeonggi-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="강원" title="강원" href="" coords="136,56,174,72" shape="rect" onmouseover="changeImg('images/home-map-gangwon-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="대전충청" title="대전충청" href="" coords="27,149,79,167" shape="rect" onmouseover="changeImg('images/home-map-chungcheong-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="대구경북" title="대구경북" href="" coords="179,148,229,167" shape="rect" onmouseover="changeImg('images/home-map-gyeongbuk-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="광주전라" title="광주전라" href="" coords="17,224,70,243" shape="rect" onmouseover="changeImg('images/home-map-jeolla-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="부산경남" title="부산경남" href="" coords="170,232,222,250" shape="rect" onmouseover="changeImg('images/home-map-gyeongnam-hover.png')" onmouseout="changeImg('images/home-map.png')">
+      <area target="" alt="제주" title="제주" href="" coords="8,327,46,344" shape="rect" onmouseover="changeImg('images/home-map-jeju-hover.png')" onmouseout="changeImg('images/home-map.png')">
     </map>
   </div>
 
   <div class="btm">
     <span class="btm-text">검색하여 찾기</span>
     <a href="home.html">
-      <img src="images/home-btm-btn.png" class="btm-btn" alt="">
+      <img src="images/home-btm-up-btn.png" class="btm-btn" alt="">
     </a>
   </div>
 </body>
