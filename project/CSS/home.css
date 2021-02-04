@@ -1,0 +1,178 @@
+/* 공통부 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.basic-background {
+  background: url("../images/home-background.png") no-repeat center top;
+  background-size: 360px 330px;
+}
+
+.map-background {
+  background: url("../images/home-map-background.png") no-repeat center top;
+  background-size: 360px 600px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.header-btn {
+  width: 360px;
+  height: 40px;
+}
+
+.logo {
+  margin-top: 40px;
+  width: 200px;
+  height: 100px;
+}
+
+#scroll {
+  width: 200px;
+  height: 30px;
+  margin-top: -20px;
+  padding-bottom: -10px;
+}
+
+#scroll li {
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+.rank {
+  margin-top: -30px;
+  margin-bottom: 10px;
+  width: 200px;
+  padding: 0 5px;
+  height: 20px;
+  overflow: hidden;
+  font-size: 11px;
+}
+
+.rank ul,
+.rank li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.rank li a {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  color: #555;
+  text-decoration: none;
+}
+
+.rank li span {
+  padding: 2px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.rank li .region-tag {
+  background-color: #758;
+  border-radius: 20px;
+  color: #eee;
+  font-size: 10px;
+  font-weight: normal;
+  padding: 1px 4px;
+}
+
+.rank-up {
+  color: #11f;
+  font-weight: bold;
+}
+
+.rank-down {
+  color: #f11;
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+.footer-btn {
+  width: 35px;
+  height: 35px;
+  animation: moving-btn 1s;
+}
+
+.footer-btn:hover {
+  animation: moving-btn-reset 1s infinite ease;
+}
+
+/* home.html */
+.search {
+  display: block;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: center;
+  /* white-space: nowrap; */
+}
+
+.search-bar {
+  border: 0px;
+  border-radius: 50px;
+  width: 300px;
+  height: 40px;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-right: 45px;
+  padding-bottom: 5px;
+}
+
+.search-btn {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: 6px;
+  width: 29px;
+  height: 29px;
+}
+
+.footer-home {
+  margin-top: 30px;
+}
+
+/* home-map.html */
+
+.explore {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.explore-map {
+  width: 250px;
+}
+
+.footer-home-map {
+  margin-top: -5px;
+}

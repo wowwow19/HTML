@@ -1,117 +1,82 @@
 <!DOCTYPE html>
+
 <head>
   <meta charset="UTF-8">
   <title>Place now</title>
+  <link rel="stylesheet" href="CSS/home.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/home.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 360px;
-      height: 600px;
-      margin: 0 auto;
-      padding-top: 10px;
-      background: url("images/home-background.png") no-repeat center top;
-      background-size: 360px 330px;
-    }
-    .top-btn {
-      width: 360px;
-      height: 40px;
-    }
-    .logo {
-      margin-top: 40px;
-      width: 200px;
-      height: 100px;
-    }
-    .search {
-      display: block;
-      margin-top: 5px;
-      align-items: center;
-      justify-content: center;
-      /* white-space: nowrap; */
-    }
-    .search-bar {
-      border: 0px;
-      border-radius: 50px;
-      width: 300px;
-      height: 40px;
-      font-size: 13px;
-      padding-left: 15px;
-      padding-right: 45px;
-      padding-bottom: 5px;
-    }
-    .search-btn {
-      position: absolute;
-      margin-left: -40px;
-      margin-top: 6px;
-      width: 29px;
-      height: 29px;
-    }
-    .btm {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: #333;
-      margin-top: 30px;
-    }
-    .btm-text {
-      font-size: 12px;
-    }
     @keyframes moving-btn {
       0% {
         transform: none;
-      } 
+      }
+
       100% {
-        transform: translate(0,0);
+        transform: translate(0, 0);
       }
     }
+
     @keyframes moving-btn-reset {
       0% {
         transform: none;
       }
+
       100% {
         transform: translate(0, 5px);
       }
     }
-    .btm-btn {
-      width: 35px;
-      height: 35px;
-      animation: moving-btn 1s;
-    }
-    .btm-btn:hover {
-      animation: moving-btn-reset 1s infinite ease;
-    }
   </style>
 </head>
-<body>
-  <div class="top">
-    <img src="images/home-menu-btn.png" class="top-btn" alt="" usemap="#image-map">
-    <map name="image-map">
-      <area target="" alt="" title="" href="menu-before-login.html" coords="303,2,347,39" shape="rect">
-    </map>
-  </div>
 
-  <div>
-    <a href="home.html"><img src="images/home-logo.png" class="logo" alt="기본로고"></a>
-  </div>
-  
-  <div class="search">
-    <form method="GET">
-      <input class="search-bar" type="search" placeholder="어디로 갈까요?" name="keyword">
-      <input type="image" class="search-btn" src="images/home-search-btn.png">
-    </form>
-  </div>
-  
-  <div class="btm">
-    <span class="btm-text">지도로 보기</span>
-    <a href="home-map.html">
-      <img src="images/home-btm-down-btn.png" class="btm-btn" alt="">
-    </a>
+<body>
+  <div class="wrapper basic-background">
+    <div class="header">
+      <img src="images/home-menu-btn.png" class="header-btn" alt="" usemap="#image-map">
+      <map name="image-map">
+        <area target="" alt="" title="" href="menu-before-login.html" coords="303,2,347,39" shape="rect">
+      </map>
+    </div>
+
+    <div>
+      <a href="home.html"><img src="images/home-logo.png" class="logo" alt="기본로고"></a>
+    </div>
+
+    <div class="rank">
+      <ul id="ticker">
+        <li><a href="#"><span>1</span><span class="region-tag">서울</span>홍대입구<span class="rank-no">-</span></a></li>
+        <li><a href="#"><span>2</span><span class="region-tag">서울</span>강남역<span class="rank-no">-</span></a></li>
+        <li><a href="#"><span>3</span><span class="region-tag">부산・경남</span>서면역<span class="rank-up">↑</span></a></li>
+        <li><a href="#"><span>4</span><span class="region-tag">서울</span>코엑스</a></li>
+        <li><a href="#"><span>5</span><span class="region-tag">서울</span>한강공원</a></li>
+        <li><a href="#"><span>6</span><span class="region-tag">서울</span>가로수길</a></li>
+        <li><a href="#"><span>7</span><span class="region-tag">대구・경북</span>동성로</a></li>
+        <li><a href="#"><span>8</span><span class="region-tag">인천</span>부평역</a></li>
+        <li><a href="#"><span>9</span><span class="region-tag">서울</span>광화문광장</a></li>
+        <li><a href="#"><span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을</a></li>
+      </ul>
+    </div>
+
+    <div class="search">
+      <form method="GET">
+        <input class="search-bar" type="search" placeholder="어디로 갈까요?" name="keyword">
+        <input type="image" class="search-btn" src="images/home-search-btn.png">
+      </form>
+    </div>
+
+    <div class="footer footer-home">
+      <span class="footer-text">지도로 보기</span>
+      <a href="home-map.html">
+        <img src="images/home-btm-down-btn.png" class="footer-btn" alt="">
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var real_search_keyword = new textScroll('scroll'); // 스크롤링 하고자하는 ul 엘리먼트의 id값을 인자로 넣습니다
+      real_search_keyword.name = "real_search_keyword"; // 인스턴스 네임을 등록합니다
+      real_search_keyword.start(); // 스크롤링 시작
+    </script>
   </div>
 </body>
+
 </html>

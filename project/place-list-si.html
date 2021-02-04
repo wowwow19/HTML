@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("span").click(function () {
+        $("#fav-btn", this).toggleClass("far fas");
+      }); 
+    });
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 360px;
+      height: 600px;
+      margin: 0 auto;
+      padding: 0;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .header {
+      width: 360px;
+      height: 50px;
+    }
+
+    .header-btn {
+      width: 100%;
+      height: 100%;
+    }
+
+    .nav {
+      width: 360px;
+      height: 50px;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    /* 스크롤바 숨기기 */
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav ul {
+      width: 920px;
+      height: 40px;
+      margin-left: 5px;
+    }
+
+    .nav li {
+      display: inline-block;
+      height: 40px;
+      font-size: 35px;
+      font-weight: bold;
+      margin: 0 3px;
+    }
+
+    .nav a {
+      color: #eee;
+    }
+
+    .nav .active {
+      color: #333;
+    }
+
+    .active {
+      color: #333;
+    }
+
+    .contents {
+      width: 360px;
+      margin-top: 10px;
+      height: 600px;
+      overflow: hidden auto;
+      border: 1px solid transparent;
+      border-radius: 10px 30px;
+    }
+
+    .contents ul {
+      width: 360px;
+      height: 930px;
+    }
+
+    .contents li {
+      height: 110px;
+      font-size: 100px;
+      padding-top: 20px;
+      clear: both;
+    }
+
+    .contents li:hover .thumbnail {
+      opacity: .8;
+      transition: .5s;
+    }
+
+    .thumbnail {
+      width: 140px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      float: left;
+    }
+
+    .place-info {
+      width: 200px;
+      height: 110px;
+      float: left;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .place-title {
+      width: 130px;
+      margin: 5px 0px 5px 10px;
+      color: #333;
+      font-size: 25px;
+      font-weight: bold;
+      float: left;
+    }
+
+    .place-info i {
+      font-size: 30px;
+      margin-top: 3px;
+      float: right;
+      color: #f88;
+    }
+
+    .place-comments {
+      display: flex;
+      height: 15px;
+      font-size: 10px;
+      margin-left: 10px;
+      clear: both;
+      align-items: center;
+    }
+
+    .place-comments img {
+      margin-left: 3px;
+      margin-bottom: 3px;
+    }
+
+    .place-comments span {
+      color: #333;
+      margin-right: 3px;
+    }
+
+    .like-num {
+      font-weight: 900;
+      margin-left: 3px;
+    }
+
+    .congestion {
+      width: 100px;
+      height: 15px;
+      margin-top: 5px;
+      margin-left: 10px;
+      float: left;
+    }
+
+    .congestion i {
+      font-size: 11px;
+      margin-right: 4px;
+      color: #eee;
+      float: left;
+    }
+
+    .congestion span {
+      display: inline-block;
+      float: left;
+      width: 20px;
+      font-size: 11px;
+      color: #ccc;
+      margin-top: 3px;
+      margin-right: 3px;
+    }
+
+
+    .low>i:nth-child(1) {
+      color: cornflowerblue;
+    }
+
+    .normal>i:nth-child(1),
+    .normal>i:nth-child(2) {
+      color: #fb5;
+    }
+
+    .high>i:nth-child(1),
+    .high>i:nth-child(2),
+    .high>i:nth-child(3) {
+      color: tomato;
+    }
+
+    .up-btn {
+      display: inline-block;
+      position: sticky;
+      bottom: 20px;
+      padding-left: 310px;
+    }
+
+    .up-btn i {
+      font-size: 40px;
+      color: #555;
+      opacity: .1;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #333;
+    }
+
+    .footer-text {
+      font-size: 12px;
+    }
+
+    .footer-btn {
+      margin-top: 5px;
+      font-size: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <img src="images/list-top-btn.png" class="header-btn" alt="" usemap="#image-map">
+    <map name="image-map">
+      <area target="" alt="" title="" href="home.html" coords="10,3,106,45" shape="rect">
+      <area target="" alt="" title="" href="menu-before-login.html" coords="299,3,348,43" shape="rect">
+    </map>
+  </div>
+
+  <nav class="nav">
+    <ul>
+      <li><a href="place-list-si.html" class="active">서울・인천</a></li>
+      <li><a href="">경기</a></li>
+      <li><a href="">강원</a></li>
+      <li><a href="">대전・충청</a></li>
+      <li><a href="">광주・전라</a></li>
+      <li><a href="">대구・경북</a></li>
+      <li><a href="">부산・경남</a></li>
+      <li><a href="">제주</a></li>
+    </ul>
+  </nav>
+
+  <div class="contents">
+    <ul>
+      <li>
+        <a href="#"><img src="images/list-01.png" class="thumbnail" alt=""></a>
+        <div class="place-info">
+          <a href="place-list-si-01.html">
+            <span class="place-title">경복궁</span>
+          </a>
+          <span>
+            <i class="far fa-heart" id="fav-btn"></i>
+          </span>
+          <div class="place-comments">
+            <span>아이들 데리고 다니기 좋아요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">162</span>
+          </div>
+          <div class="place-comments">
+            <span>힘들기만 했어요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">101</span>
+          </div>
+          <div class="congestion normal">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <a href="#">
+              <span>보통</span>
+              <i class="fas fa-question-circle"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#"><img src="images/list-02.png" class="thumbnail" alt=""></a>
+        <div class="place-info">
+          <a href="#">
+            <span class="place-title">홍대입구</span>
+          </a>
+          <span>
+            <i class="far fa-heart" id="fav-btn"></i>
+          </span>
+          <div class="place-comments">
+            <span>아이들 데리고 다니기 좋아요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">162</span>
+          </div>
+          <div class="place-comments">
+            <span>힘들기만 했어요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">101</span>
+          </div>
+          <div class="congestion high">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <a href="#">
+              <span>높음</span>
+              <i class="fas fa-question-circle"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#"><img src="images/list-03.png" class="thumbnail" alt=""></a>
+        <div class="place-info">
+          <a href="#">
+            <span class="place-title">코엑스</span>
+          </a>
+          <span>
+            <i class="far fa-heart" id="fav-btn"></i>
+          </span>
+          <div class="place-comments">
+            <span>아이들 데리고 다니기 좋아요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">162</span>
+          </div>
+          <div class="place-comments">
+            <span>힘들기만 했어요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">101</span>
+          </div>
+          <div class="congestion normal">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <a href="#">
+              <span>보통</span>
+              <i class="fas fa-question-circle"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#"><img src="images/list-04.png" class="thumbnail" alt=""></a>
+        <div class="place-info">
+          <a href="#">
+            <span class="place-title">광화문광장</span>
+          </a>
+          <span>
+            <i class="far fa-heart" id="fav-btn"></i>
+          </span>
+          <div class="place-comments">
+            <span>아이들 데리고 다니기 좋아요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">162</span>
+          </div>
+          <div class="place-comments">
+            <span>힘들기만 했어요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">101</span>
+          </div>
+          <div class="congestion low">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <a href="#">
+              <span>낮음</span>
+              <i class="fas fa-question-circle"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#"><img src="images/list-05.png" class="thumbnail" alt=""></a>
+        <div class="place-info">
+          <a href="#">
+            <span class="place-title">한강공원</span>
+          </a>
+          <span>
+            <i class="far fa-heart" id="fav-btn"></i>
+          </span>
+          <div class="place-comments">
+            <span>아이들 데리고 다니기 좋아요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">162</span>
+          </div>
+          <div class="place-comments">
+            <span>힘들기만 했어요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">101</span>
+          </div>
+          <div class="congestion normal">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <a href="#">
+              <span>보통</span>
+              <i class="fas fa-question-circle"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#"><img src="images/list-06.png" class="thumbnail" alt=""></a>
+        <div class="place-info">
+          <a href="#">
+            <span class="place-title">롯데월드타워</span>
+          </a>
+          <span>
+            <i class="far fa-heart" id="fav-btn"></i>
+          </span>
+          <div class="place-comments">
+            <span>아이들 데리고 다니기 좋아요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">162</span>
+          </div>
+          <div class="place-comments">
+            <span>힘들기만 했어요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">101</span>
+          </div>
+          <div class="congestion high">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <a href="#">
+              <span>높음</span>
+              <i class="fas fa-question-circle"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#"><img src="images/list-01.png" class="thumbnail" alt=""></a>
+        <div class="place-info">
+          <a href="#">
+            <span class="place-title">가로수길</span>
+          </a>
+          <span>
+            <i class="far fa-heart" id="fav-btn"></i>
+          </span>
+          <div class="place-comments">
+            <span>아이들 데리고 다니기 좋아요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">162</span>
+          </div>
+          <div class="place-comments">
+            <span>힘들기만 했어요</span>
+            <img src="images/like-icon.png" alt="">
+            <span class="like-num">101</span>
+          </div>
+          <div class="congestion normal">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <a href="#">
+              <span>보통</span>
+              <i class="fas fa-question-circle"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="footer">
+      <span class="footer-text">더보기</span>
+      <a href="#">
+        <i class="fas fa-caret-down footer-btn"></i>
+      </a>
+    </div>
+    <div class="up-btn">
+      <i class="far fa-caret-square-up"></i>
+    </div>
+  </div>
+</body>
+
+</html>
