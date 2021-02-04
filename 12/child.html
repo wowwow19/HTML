@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div ul {
+      border: 1px dotted;
+    }
+    div > ul {
+      border-width: 3px;
+    }
+    li + li {
+      color: blue;
+    }
+    li + li + li {
+      color: green;
+    }
+    h1 ~ p {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>예약방법 및 요금</h1>
+    <h2 id="h2">참고사항</h2>
+    <p>세부 조항은 아래의 내용을 참고합니다.</p>
+    <ul>
+      <li>예약방법
+        <ul>
+          <li>직접통화</li>
+          <li>문자남기기</li>
+        </ul>
+      </li>
+      <li>요금
+        <ul>
+          <li>1인 : 40,000원</li>
+          <li>2인 : 60,000원</li>
+          <li>3인 : 80,000원</li>
+          <li>4인 : 100,000원</li>
+        </ul>
+    </ul>
+  </div>
+  <script>
+    alert(document.getElementById("h2").innerText);
+    alert(h2.innerText);
+    h2.innerText = prompt("변경할 내용?");
+  </script>
+</body>
+</html>

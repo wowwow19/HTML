@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .daum ul {
+      list-style: none;
+    }
+
+    .daum li {
+      display: inline-block;
+    }
+
+    .daum a {
+      display: inline-block;
+      background: url("https://t1.daumcdn.net/daumtop_deco/images/top/2021/txt_pctop_210121.png") no-repeat;
+      background-position-y: -45px;
+      text-indent: -9999999px;
+      width: 22px;
+      height: 16px;
+      margin: 10px;
+    }
+
+    .daum li+li a {
+      background-position-x: -37px;
+    }
+
+    .daum li+li+li a {
+      background-position-x: -73px;
+      width: 23px;
+    }
+
+    .daum li+li+li+li a {
+      background-position-x: -110px;
+    }
+
+    .custom ul {
+      list-style: none;
+      background: #333;
+    }
+
+    .custom li {
+      display: inline-block;
+      margin: 25px 30px;
+    }
+
+    .custom li a {
+      text-decoration: none;
+      padding: 25px;
+      display: inline-block;
+    }
+
+    .custom li a:link,
+    .custom li a:visited {
+      color: #eee;
+    }
+
+    .custom li a:hover,
+    .custom li a:active,
+    .custom li a:focus {
+      color: #ffa;
+      background-color: #666;
+    }
+
+    .signin {
+      width: 600px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    .signin th {
+      text-align: right;
+    }
+    .signin th + td {
+      text-align: left;
+    }
+
+    .signin td {
+      height: 50px;
+      text-align: center;
+      padding: 15px;
+    }
+    
+    .signin input:not([type='radio']) {
+      padding: 10px;
+      margin: 3px 0px;
+      width: 350px;
+      
+    }
+
+    /* .signin input[type='radio'] {
+      width: 30px;
+    } */
+
+    .signin input:not([type='radio']):focus {
+      box-shadow: 0 0 5px red;
+      background: #ffa;
+    }
+
+    .signin input[type='radio']:checked + span {
+      color: blue;
+    }
+
+    .signin button {
+      width: 30%;
+      margin: 0 10px;
+      padding: 15px;
+    }
+    
+    .signin tr:nth-child(odd) {
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="daum">
+    <ul>
+      <li><a href="https://cafe.daum.net">카페</a></li>
+      <li><a href="https://mail.daum.net">메일</a></li>
+      <li><a href="https://news.daum.net">뉴스</a></li>
+      <li><a href="https://map.daum.net">지도</a></li>
+    </ul>
+  </nav>
+  <nav class="custom">
+    <ul>
+      <li><a href="#">카페</a></li>
+      <li><a href="#">메일</a></li>
+      <li><a href="#">뉴스</a></li>
+      <li><a href="#">지도</a></li>
+    </ul>
+  </nav>
+
+  <form action="">
+    <table class="signin">
+      <tr>
+        <th>아이디</th>
+        <td><input type="text" name="id"></td>
+      </tr>
+      <tr>
+        <th>비밀번호</th>
+        <td><input type="password" name="pw"></td>
+      </tr>
+      <tr>
+        <th>비밀번호 확인</th>
+        <td><input type="password" name="pw-chk"></td>
+      </tr>
+      <tr>
+        <th>이름</th>
+        <td><input type="text" name="name"></td>
+      </tr>
+      <tr>
+        <th>성별</th>
+        <td>
+          <label for=""><input type="radio" name="gender" value="male"><span>남</span></label>
+          <label for=""><input type="radio" name="gender" value="female"><span>여</span></label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="submit" value="회원가입" 
+            onclick="alert('회원가입이 완료되었습니다'); location.href='nav.html'" 
+            event.preventDefault();>
+          회원가입
+          </button>
+          <a href="javascript:history.back()"><button type="button" value="취소">취소</button></a>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>

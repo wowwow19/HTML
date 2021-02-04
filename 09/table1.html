@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .tbl1 {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .tbl1 td {
+      border: 1px dotted;
+      padding: 10px;
+    }
+
+    .tbl2 {
+      border: 1px solid black;
+      border-spacing: 10px;
+    }
+
+    .tbl2 td {
+      border: 1px dotted;
+      padding: 10px;
+      empty-cells: hide;
+    }
+
+    .tbl3 {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 400px;
+      height: 300px;
+    }
+
+    .tbl3 td {
+      border: 1px solid;
+      padding: 10px;
+    }
+
+    .ulsan {
+      width: 100px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .tbl4, .tbl4 td {
+      width: 300px;
+      border: 1px solid;
+      table-layout: fixed;
+      white-space: nowrap;
+      overflow: hidden;
+      /* 텍스트가 크기 초과시 줄임표 삽입 */
+      text-overflow: ellipsis;
+    }
+
+    .tbl4 td {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="tbl1">
+    <caption>프로축구 경기일정</caption>
+    <tr>
+      <td>울산</td>
+      <td>울산 vs 인천</td>
+    </tr>
+    <tr>
+      <td>부산</td>
+      <td>부산 vs 대전</td>
+    </tr>
+    <tr>
+      <td>서울</td>
+      <td>서울 vs 강원</td>
+    </tr>
+  </table>
+  <table class="tbl2">
+    <caption>프로축구 경기일정</caption>
+    <tr>
+      <td>울산</td>
+      <td>울산 vs 인천</td>
+    </tr>
+    <tr>
+      <td>부산</td>
+      <td>부산 vs 대전</td>
+    </tr>
+    <tr>
+      <td>서울</td>
+      <td>서울 vs 강원</td>
+    </tr>
+  </table>
+  <table class="tbl2">
+    <caption>프로축구 경기일정</caption>
+    <tr>
+      <td>울산</td>
+      <td>울산 vs 인천</td>
+      <td>tv 중계</td>
+    </tr>
+    <tr>
+      <td>부산</td>
+      <td>부산 vs 대전</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>서울</td>
+      <td>서울 vs 강원</td>
+      <td></td>
+    </tr>
+  </table>
+  <table class="tbl3">
+    <caption>프로축구 경기일정</caption>
+    <tr>
+      <td class="ulsan">울산</td>
+      <td>울산 vs 인천</td>
+    </tr>
+    <tr>
+      <td>부산</td>
+      <td>부산 vs 대전</td>
+    </tr>
+    <tr>
+      <td>서울</td>
+      <td>서울 vs 강원</td>
+    </tr>
+  </table>
+  <table class="tbl4">
+    <tr>
+      <td>가나다라마바사가나다라마바사가나다라마바사가나다라마바사가나다라마바사</td>
+      <td>ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG</td>
+    </tr>
+  </table>
+</body>
+
+</html>

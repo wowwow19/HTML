@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .target {
+      background: transparent;
+      color: #222;
+      min-width: 100px;
+      max-width: 300px;
+      padding: 10px 15px;
+      border: 1px solid #eef;
+      border-radius: 2em;
+      margin: 5px;
+      font-size: 13px;
+    }
+
+    /* 문단 뒤에 붙이기 */
+    .target::after {
+      content: ' 방금전';
+      color: #aaa;
+      font-size: 11px;
+      vertical-align: middle;
+      display: inline;
+      position: relative;
+      left: 250px;
+      top: 10px;
+    }
+
+    /* .target::after {
+      content: '  ';
+      display: block;
+      position: absolute;
+      border: 20px solid transparent;
+      border-top-color: black;
+      border-width: 40px 20px;
+      left: 20%;
+      transform: skewX(-30deg);
+    } */
+  </style>
+</head>
+<body>
+  <div class="target">오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.</div>
+  <div class="target">오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.</div>
+  <div class="target">오늘도 여러분 고생하셨습니다.오늘도 여러분 고생하셨습니다.</div>
+  <div class="target">오늘도</div>
+</body>
+</html>

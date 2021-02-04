@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    li {
+      list-style: none;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    li a {
+      text-decoration: none;
+      color: #09f;
+    }
+
+    .attr2 li {
+      display: list-item;
+    }
+
+    [target="_blank"] {
+      background: url(images/newwindow.png) no-repeat center right;
+      padding-right: 30px;
+    }
+
+    .attr3 a {
+      padding: 15px;
+    }
+
+    /* ~ : 공백기준으로 특정 단어가 포함된 요소를 선택 */
+    [title~="button"] {
+      border: 2px solid black;
+      box-shadow: #0006 5px 5px;
+    }
+
+    [title~="flat"] {
+      background: blue;
+      color: #ddd;
+    }
+
+    /* | : 하이픈(-)기준으로 이전에 특정 단어가 포함된 요소를 선택 */
+    [title|="button"] {
+      background: url(images/us.png) center left no-repeat;
+      padding-left: 20px;
+    }
+
+    /* * : 특정 단어가 포함된 요소를 선택 */
+    [title*="button"] {
+      text-decoration: underline;
+    }
+
+    .attr4 [href] {
+      background: no-repeat left center;
+      padding: 5px 25px;
+    }
+
+    /* ^ : 특정 글자로 시작되는 요소를 선택 */
+    .attr4 [title^="eng"] {
+      background-image: url(images/us.png);
+    }
+
+    .attr4 [title^="jap"] {
+      background-image: url(images/jp.png);
+    }
+
+    .attr4 [title^="chi"] {
+      background-image: url(images/ch.png);
+    }
+
+    .attr5 [href] {
+      background: no-repeat right center;
+      padding: 5px 25px;
+    }
+
+    /* $ : 특정 글자로 끝나는 요소를 선택 */
+    .attr5 [href$="hwp"] {
+      background-image: url(images/hwp_icon.gif);
+    }
+
+    .attr5 [href$="xlsx"] {
+      background-image: url(images/excel_icon.gif);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="attr2">
+    <h3>[속성="값"] 선택자</h3>
+    <h3>HTML5 표준안 사이트</h3>
+    <ul>
+      <li><a href="http://www.w3c.org" target="_blank">HTML</a></li>
+      <li><a href="http://www.w3c.org" target="_self">CSS</a></li>
+      <li><a href="http://www.w3c.org" target="_self">미디어쿼리</a></li>
+    </ul>
+  </div>
+  <div class="attr3">
+    <h3>[속성~="값"] 선택자</h3>
+    <h3>[속성|="값"] 선택자</h3>
+    <h3>[속성*="값"] 선택자</h3>
+    <ul>
+      <li><a href="#" title="button-1">메뉴 1</a></li>
+      <li><a href="#" title="mybutton">메뉴 2</a></li>
+      <li><a href="#" title="button">메뉴 3</a></li>
+      <li><a href="#" title="button flat">메뉴 4</a></li>
+    </ul>
+  </div>
+  <div class="attr4">
+    <h3>[속성^="값"] 선택자</h3>
+    <ul>
+      <li>외국어 서비스</li>
+      <li><a href="" title="english">영어</a></li>
+      <li><a href="" title="japanese">일본어</a></li>
+      <li><a href="" title="chinese">중국어</a></li>
+    </ul>
+  </div>
+  <div class="attr5">
+    <h3>[속성$="값"] 선택자</h3>
+    <h4>회사 소개 다운받기</h4>
+    <ul>
+      <li><a href="intro.hwp">hwp 파일</a></li>
+      <li><a href="intro.xlsx">엑셀 파일</a></li>
+    </ul>
+  </div>
+</body>
+
+</html>
