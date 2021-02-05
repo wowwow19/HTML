@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/index.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper register">
+    <div class="header">
+      <img src="images/list-top-btn.png" class="header-btn header-list" alt="" usemap="#image-map">
+      <map name="image-map">
+        <area target="" alt="" title="" href="index.html" coords="10,3,106,45" shape="rect">
+        <area target="" alt="" title="" href="menu-before-login.html" coords="299,3,348,43" shape="rect">
+      </map>
+    </div>
+    <div class="title">
+      <p>회원가입</p>
+    </div>
+    <div class="form">
+      <form action="">
+        <table>
+          <tr>
+            <th>이메일</th>
+            <td><input type="text" name="id" class="short" required></td>
+            <td>
+              <span>@</span>
+              <select name="email" class="select-email">
+                <option value="" selected>선택하세요</option>
+                <option value="naver.com">naver.com</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="daum.net">daum.net</option>
+                <option value="1">직접입력</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>비밀번호</th>
+            <td colspan="2"><input type="password" name="pw" required></td>
+          </tr>
+          <tr>
+            <th>비밀번호 확인</th>
+            <td colspan="2"><input type="password" name="pw-chk" required></td>
+          </tr>
+          <tr>
+            <th>닉네임</th>
+            <td><input type="text" name="name" class="short" required></td>
+            <td><button id="check">중복확인</button></td>
+          </tr>
+          <tr>
+            <td colspan="3" class="agree">
+              <label>
+                <input type="checkbox" name="mail-news" value="consent">
+                이메일로 최신 소식을 받아보겠습니다.
+              </label>
+            </td>
+          </tr>
+          <tr class="button">
+            <td colspan="3">
+              <button type="submit" value="회원가입" onclick="alert('회원가입이 완료되었습니다'); location.href='login.html'">완료</button>
+              <a href="javascript:history.back()"><button type="button" value="prev" id="prev">이전</button></a>
+            </td>
+          </tr>
+        </table>
+      </form>    
+    </div>
+  </div>
+</body>
+</html>

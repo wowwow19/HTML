@@ -9,47 +9,29 @@
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
   <script src="js/index.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b4280e763405f78f741398ca33cfd410"></script>
   <script>
-
-    // 이미지 슬라이드
-    document.addEventListener('DOMContentLoaded', function () {
-      new Splide('#splide', {
-        type: 'loop',
-        padding: {
-          right: '5rem',
-          left: '5rem',
-        },
-      }).mount();
-    });
-
-    // 즐겨찾기 토글
     $(function () {
       $("span").click(function () {
         $("#fav-btn", this).toggleClass("far fas");
       });
     });
-
-    // 좋아요 토글
     $(function () {
       $("span").click(function () {
         $("#like-btn", this).toggleClass("like-btn like-btn-clicked");
       });
     });
-
     $(function () {
       $("span").click(function () {
         $("#like-btn", this).toggleClass("far fas");
       });
     });
-
   </script>
 </head>
 
 <body>
   <div class="wrapper">
-    <div class="hearder">
+    <div class="header">
       <img src="images/list-top-btn-02.png" class="header-btn header-list" alt="" usemap="#image-map">
       <map name="image-map">
         <area target="" alt="back" title="back" onclick="history.back()" coords="2,2,38,46" shape="rect">
@@ -96,16 +78,7 @@
         </div>
       </div>
   
-      <div class="splide" id="splide">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide"><img src="images/list-01.png" alt=""></li>
-            <li class="splide__slide"><img src="images/list-01-02.png" alt=""></li>
-            <li class="splide__slide"><img src="images/list-01-03.png" alt=""></li>
-            <li class="splide__slide"><img src="images/list-01-04.png" alt=""></li>
-          </ul>
-        </div>
-      </div>
+      <div id="map"></div>
   
       <div class="comments-header">
         <span>NOW</span>
@@ -256,6 +229,29 @@
       </div>
     </div>
   </div>
-</body>
+  <script>
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = { 
+            center: new kakao.maps.LatLng(37.5774015628117, 126.9769398201679), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+        };
+    
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    
+    // 마커가 표시될 위치입니다 
+    var markerPosition  = new kakao.maps.LatLng(37.5774015628117, 126.9769398201679); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+    
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+    
+    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+    // marker.setMap(null);    
+    </script>
+    </body>
 
 </html>

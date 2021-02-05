@@ -1,0 +1,824 @@
+/* 공통부 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.basic-background {
+  background: url("../images/home-background.png") no-repeat center top;
+  background-size: 360px 330px;
+}
+
+.map-background {
+  background: url("../images/home-map-background.png") no-repeat center top;
+  background-size: 360px 600px;
+}
+
+.login-background {
+  background: url("../images/login-background.png") no-repeat center top;
+  background-size: 360px 500px;
+}
+
+.menu-background {
+  background: url("images/menu-background.png") no-repeat center bottom;
+  background-size: 360px 100px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+fieldset {
+  border: 0px;
+}
+
+legend {
+  visibility: hidden;
+}
+
+a, span {
+  text-decoration: none;
+  color: #333;
+}
+
+.header-btn {
+  width: 360px;
+  height: 40px;
+}
+
+.logo {
+  margin-top: 40px;
+  width: 200px;
+  height: 100px;
+}
+
+/* 지역별 내비게이션바 */
+.nav {
+  width: 360px;
+  height: 50px;
+  overflow: auto hidden;
+  padding-bottom: 5px;
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav ul {
+  width: 920px;
+  margin-left: 5px;
+}
+
+.nav li {
+  display: inline-block;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 0 3px;
+}
+
+.nav a {
+  color: #eee;
+}
+
+.nav .active {
+  color: #333;
+}
+
+/* 실시간 검색어 */
+#scroll {
+  width: 200px;
+  height: 30px;
+  margin-top: -20px;
+  padding-bottom: -10px;
+}
+
+#scroll li {
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+.rank {
+  margin-top: -30px;
+  margin-bottom: 10px;
+  width: 200px;
+  padding: 0 5px;
+  height: 20px;
+  overflow: hidden;
+  font-size: 11px;
+}
+
+.rank ul,
+.rank li {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.rank li a {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  color: #555;
+}
+
+.rank li span {
+  padding: 2px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.rank li .region-tag {
+  background-color: #758;
+  border-radius: 20px;
+  color: #eee;
+  font-size: 10px;
+  font-weight: normal;
+  padding: 1px 4px;
+}
+
+.rank-up {
+  color: #11f;
+  font-weight: bold;
+}
+
+.rank-down {
+  color: #f11;
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+.footer-btn {
+  width: 35px;
+  height: 35px;
+  animation: moving-btn 1s;
+}
+
+.footer-btn:hover {
+  animation: moving-btn-reset 1s infinite ease;
+}
+
+/* index.html */
+.search {
+  display: block;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: center;
+  /* white-space: nowrap; */
+}
+
+.search-bar {
+  border: 0px;
+  border-radius: 50px;
+  width: 300px;
+  height: 40px;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-right: 45px;
+  padding-bottom: 0px;
+  float: left;
+}
+
+.search-btn {
+  margin-left: -50px;
+  margin-right: 10px;
+  margin-top: 5px;
+  width: 28px;
+  height: 28px;
+  float: right;
+}
+
+.footer-home {
+  margin-top: 30px;
+}
+
+/* index-map.html */
+
+.explore {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.explore-map {
+  width: 250px;
+}
+
+.footer-map {
+  margin-top: -5px;
+}
+
+/* login.html */
+
+.login-form ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: -15px;
+  padding: 0px;
+}
+
+.login-form li {
+  margin-top: 15px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.login-form .input-bar {
+  border: 0px;
+  border-radius: 50px;
+  width: 150px;
+  height: 35px;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.login-form .login-btn {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: -2px;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.login-form .form-icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.login-form .left-text {
+  margin-right: 15px;
+}
+
+.login-form .right-text {
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+/* menu.html */
+.header-menu {
+  height: 45px;
+}
+
+.user-text {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 200px;
+  font-weight: bold;
+  color: #333;
+}
+
+.menu-list ul {
+  width: 360px;
+  text-align: center;
+  margin-top: -5px;
+  padding-left: 0;
+}
+
+.menu-list li {
+  padding: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* place-list.html */
+
+.header-list {
+  height: 51px;
+  margin-top: -2px;
+}
+
+.place-list {
+  height: 600px;
+  overflow: hidden auto;
+}
+
+.place-list ul {
+  width: 360px;
+  height: 850px;
+  margin-top: 20px;
+}
+
+.place-list li {
+  height: 120px;
+  clear: both;
+}
+
+.place-list .thumbnail {
+  width: 140px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  float: left;
+}
+
+.place-list li:hover .thumbnail {
+  opacity: .8;
+  transition: .5s;
+}
+
+.place-list .info {
+  width: 200px;
+  height: 110px;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.place-list .title {
+  width: 130px;
+  margin: 5px 0px 5px 10px;
+  color: #333;
+  font-size: 25px;
+  font-weight: bold;
+  float: left;
+}
+
+.place-list .info i {
+  font-size: 30px;
+  margin-top: 3px;
+  float: right;
+  color: #f88;
+}
+
+.place-list .comments {
+  display: flex;
+  height: 15px;
+  font-size: 10px;
+  margin-left: 10px;
+  clear: both;
+  align-items: center;
+}
+
+.place-list .comments img {
+  margin-left: 3px;
+  margin-bottom: 3px;
+}
+
+.place-list .comments span {
+  color: #333;
+  margin-right: 3px;
+}
+
+.place-list .comments .like-num {
+  font-weight: 900;
+  margin-left: 3px;
+}
+
+.place-list .congestion {
+  width: 100px;
+  height: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  float: left;
+}
+
+.place-list .congestion i {
+  font-size: 11px;
+  margin-right: 4px;
+  color: #eee;
+  float: left;
+}
+
+.place-list .congestion span {
+  display: inline-block;
+  float: left;
+  width: 20px;
+  font-size: 11px;
+  color: #ccc;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+.list-up-btn {
+  display: inline-block;
+  position: sticky;
+  bottom: 20px;
+  padding-left: 310px;
+}
+
+.list-up-btn i {
+  font-size: 40px;
+  color: #555;
+  opacity: .1;
+}
+
+.list-footer-btn {
+  margin-top: 5px;
+  font-size: 20px;
+  color: #555;
+}
+
+/* list-region-place.html */
+
+.contents {
+  width: 360px;
+  overflow: hidden auto;
+}
+
+.contents-header {
+  height: 80px;
+  padding-left: 5px;
+  margin-top: 10px;
+}
+
+.contents .info {
+  display: inline-block;
+  width: 220px;
+  padding: 10px 10px;
+  float: left;
+}
+
+.contents .title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contents .congestion {
+  display: inline-block;
+  width: 100px;
+  height: 15px;
+  margin-left: 10px;
+}
+
+.contents .congestion i {
+  font-size: 11px;
+  margin-right: 4px;
+  color: #eee;
+  float: left;
+}
+
+.contents .congestion span {
+  display: inline-block;
+  float: left;
+  width: 20px;
+  font-size: 11px;
+  color: #ccc;
+  margin-right: 3px;
+}
+
+.low > i:nth-child(1) {
+  color: cornflowerblue;
+}
+
+.normal > i:nth-child(1),
+.normal > i:nth-child(2) {
+  color: #fb5;
+}
+
+.high > i:nth-child(1),
+.high > i:nth-child(2),
+.high > i:nth-child(3) {
+  color: tomato;
+}
+
+.contents .address {
+  font-size: 11px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.contents .address>a {
+  font-weight: 900;
+}
+
+.fav-shr-btn {
+  display: inline-block;
+  width: 80px;
+  padding: 15px 5px 10px 30px;
+  float: right;
+}
+
+.fav-shr-btn i {
+  font-size: 25px;
+  margin: 0 5px;
+  color: #333;
+}
+
+.fav-shr-btn span:nth-child(2) i {
+  color: #f88;
+}
+
+.contents .splide {
+  width: 350px;
+  height: 180px;
+  margin: 0px 5px;
+}
+
+.contents .splide__track {
+  width: 270px;
+  float: right;
+}
+
+.contents .splide img {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.contents .map {
+  width: 350px;
+  height: 180px;
+  margin: 0px 5px;
+}
+
+.contents .comments-header {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.contents .comments-header span {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 10px;
+  color: #333;
+}
+
+.contents .comments-header i {
+  margin-bottom: 4px;
+  color: #f77;
+}
+
+.contents .comments {
+  display: inline-block;
+  width: 98%;
+  height: 400px;
+  padding: 3px 3px;
+  overflow: hidden auto;
+}
+
+.contents .comments ul {
+  height: 600px;
+}
+
+.contents .comments li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 3px 0;
+  clear: both;
+}
+
+#my-comment {
+  justify-content: flex-end;
+}
+
+#my-comment .comments-box {
+  background-color: #39f;
+  border: 1px solid transparent;
+  color: #eee;
+}
+
+.contents .comments-box {
+  display: inline-block;
+  background: transparent;
+  color: #333;
+  min-width: 50px;
+  max-width: 200px;
+  padding: 10px 15px;
+  border: 1px solid #eef;
+  border-radius: 2em;
+  margin: 5px;
+  font-size: 13px;
+}
+
+.contents .comments-box>span {
+  font-size: 10px;
+  color: #ccc;
+  margin: 0px 3px;
+}
+
+.contents .comments-like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  margin-left: -3px;
+}
+
+.contents .comments-like span {
+  font-size: 11px;
+  color: #666;
+}
+
+.contents .like-btn {
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 3px;
+}
+
+.contents .like-btn-clicked {
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 3px;
+  color: #9af;
+}
+
+.contents #map {
+  width: 350px;
+  height: 180px;
+  border: 1px solid #aaa;
+  margin-bottom: -2px;
+}
+
+.place-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 132, 255, 0.1);
+}
+
+.place-footer input {
+  width: 280px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  float: left;
+  padding-left: 15px;
+  /* margin-bottom: 7px; */
+  box-shadow: 1px 1px 1px 1px inset #eee;
+}
+
+.place-footer i {
+  font-size: 30px;
+  color: white;
+}
+
+.place-footer button {
+  margin-top: 4px;
+  margin-left: -50px;
+  margin-right: 5px;
+  border: transparent;
+  background: transparent;
+  float: right;
+}
+
+.place-footer button i {
+  font-size: 24px;
+  color: #1af;
+}
+
+/* register.html */
+.register .title {
+  display: inline-block;
+  float: left;
+  width: 320px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.register .title p:nth-child(1) {
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.register .title p:nth-child(2),
+.register .title p:nth-child(3) {
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.register .form {
+  width: 350px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.register .form tr {
+  height: 50px;
+}
+
+.register .form th {
+  font-weight: normal;
+  font-size: 13px;
+  text-align: left;
+  padding-right: 5px;
+}
+
+.register .form input {
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+.register .form input:focus {
+  background: #1af;
+  color: #fff;
+}
+
+.register .short {
+  width: 100px;
+}
+
+.register .form span {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.register .select-email {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  color: #444;
+}
+
+.register button {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  background-color: #1af;
+  float: right;
+  margin-left: 15px;
+}
+
+.register #check {
+  float: left;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.register #prev {
+  color: #333;
+  background: none;
+  border: 1px solid #1af;
+}
+
+.register input[type='checkbox'] {
+  vertical-align: middle;
+  margin-bottom: 2px;
+  margin-right: 5px;
+}
+
+.form-wrapper {
+  height: 300px;
+  overflow-y: auto;
+}
+
+.register .agree {
+  font-size: 13px;
+  color: #444;
+}
+
+.consent-form {
+  height: 500px;
+}
+
+.consent-form td {
+  height: 40px;
+  font-size: 15px;
+}
+
+.terms {
+  width: 250px;
+  height: 100px;
+  border: 1px solid #eee;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 12px;
+  overflow: auto;
+}
+
+.terms-btn {
+  margin-top: 20px;
+  margin-left: 170px;
+}

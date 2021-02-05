@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/index.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <title>Place now</title>
+  <style>
+    @keyframes moving-btn {
+      0% {
+        transform: none;
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes moving-btn-reset {
+      0% {
+        transform: none;
+      }
+
+      100% {
+        transform: translate(0, -5px);
+      }
+    }
+  </style>
+    <script>
+      $(function () {
+        var ticker = function () {
+          setTimeout(function () {
+            $('#ticker li:first').animate({ marginTop: '-20px' }, 400, function () {
+              $(this).detach().appendTo('ul#ticker').removeAttr('style');
+            });
+            ticker();
+          }, 3000);
+        };
+        ticker();
+      });
+    </script>  
+</head>
+
+<body>
+  <div class="wrapper map-background">
+    <div class="header">
+      <img src="images/home-menu-btn.png" class="header-btn" alt="" usemap="#image-map">
+      <map name="image-map">
+        <area target="" alt="" title="" href="menu-before-login.html" coords="303,2,347,39" shape="rect">
+      </map>
+    </div>
+
+    <div>
+      <a href="index.html"><img src="images/home-logo.png" class="logo" alt="기본로고"></a>
+    </div>
+
+    <div class="rank">
+      <ul id="ticker">
+        <li><a href="#"><span>1</span><span class="region-tag">서울・인천</span>홍대입구<span class="rank-no">-</span></a></li>
+        <li><a href="#"><span>2</span><span class="region-tag">서울・인천</span>강남역<span class="rank-no">-</span></a></li>
+        <li><a href="#"><span>3</span><span class="region-tag">부산・경남</span>서면역<span class="rank-up">↑</span></a></li>
+        <li><a href="#"><span>4</span><span class="region-tag">서울・인천</span>코엑스<span class="rank-up">↑</span></a></li>
+        <li><a href="#"><span>5</span><span class="region-tag">서울・인천</span>한강공원<span class="rank-no">-</span></a></li>
+        <li><a href="#"><span>6</span><span class="region-tag">서울・인천</span>가로수길<span class="rank-down">↓</span></a></li>
+        <li><a href="#"><span>7</span><span class="region-tag">대구・경북</span>동성로<span class="rank-up">↑</span></a></li>
+        <li><a href="#"><span>8</span><span class="region-tag">서울・인천</span>부평역<span class="rank-down">↓</span></a></li>
+        <li><a href="#"><span>9</span><span class="region-tag">서울・인천</span>광화문광장<span class="rank-down">↓</span></a></li>
+        <li><a href="#"><span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을<span class="rank-up">↑</span></a></li>
+      </ul>
+    </div>
+
+    <div class="explore">
+      <img src="images/new-map/home_map.png" class="explore-map" usemap="#image-map-02" id="map">
+      <map name="image-map-02">
+        <area target="" alt="서울인천" title="서울인천" href="place-list-si.html" coords="22,71,65,70,71,80,82,74,87,84,80,91,68,87,63,97,56,84,25,84,21,78" shape="poly" onmouseover="changeImg('images/new-map/home_map_si_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+        <area target="" alt="경기" title="경기" href="place-list-si.html" coords="63,64,71,53,68,38,84,33,96,48,104,64,107,79,116,85,115,107,101,117,92,123,73,124,63,108,71,98,84,93,92,88,87,71,73,75" shape="poly" onmouseover="changeImg('images/new-map/home_map_gg_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+        <area target="" alt="강원" title="강원" href="place-list-si.html" coords="96,36,118,56,127,77,128,99,148,100,165,109,189,110,200,103,178,68,160,44,153,27,133,37" shape="poly" onmouseover="changeImg('images/new-map/home_map_gw_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+        <area target="" alt="대전충청" title="대전충청" href="place-list-si.html" coords="158,119,135,114,117,116,101,127,91,132,71,134,58,129,49,132,55,146,53,155,30,154,32,162,58,166,58,182,82,177,98,180,112,184,126,182,122,159,119,141" shape="poly" onmouseover="changeImg('images/new-map/home_map_dc_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+        <area target="" alt="대구경북" title="대구경북" href="place-list-si.html" coords="206,126,172,124,157,139,140,146,133,159,141,169,147,186,137,193,145,203,160,205,179,208,193,206,208,204,217,201,204,182" shape="poly" onmouseover="changeImg('images/new-map/home_map_tk_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+        <area target="" alt="광주전라" title="광주전라" href="place-list-si.html" coords="108,197,84,190,65,193,68,208,58,220,35,231,24,233,38,240,52,249,50,264,50,281,54,294,73,276,92,264,103,258,110,255" shape="poly" onmouseover="changeImg('images/new-map/home_map_gj_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+        <area target="" alt="부산경남" title="부산경남" href="place-list-si.html" coords="208,220,189,221,161,221,140,214,132,201,123,211,123,235,127,247,146,249,171,244,199,244" shape="poly" onmouseover="changeImg('images/new-map/home_map_pk_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+        <area target="" alt="제주" title="제주" href="place-list-si.html" coords="66,331,45,335,37,331,21,331,17,340,35,350,52,351,67,345,75,338" shape="poly" onmouseover="changeImg('images/new-map/home_map_jj_hv.png')" onmouseout="changeImg('images/new-map/home_map.png')">
+    </map>
+    </div>
+
+    <div class="footer footer-map">
+      <span class="footer-text">검색하여 찾기</span>
+      <a href="index.html">
+        <img src="images/home-btm-up-btn.png" class="footer-btn" alt="">
+      </a>
+    </div>
+
+    <script type="text/javascript">
+      var real_search_keyword = new textScroll('scroll'); // 스크롤링 하고자하는 ul 엘리먼트의 id값을 인자로 넣습니다
+      real_search_keyword.name = "real_search_keyword"; // 인스턴스 네임을 등록합니다
+      real_search_keyword.start(); // 스크롤링 시작
+    </script>
+  </div>
+</body>
+
+</html>

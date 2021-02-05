@@ -1,90 +1,21 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js"></script>
     <title>Place now</title>
-    <style>
-      body {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 360px;
-          height: 600px;
-          background: url("images/login-background.png") no-repeat center top;
-          background-size: 360px 500px;
-          padding-top: 10px;
-          margin: 0 auto;
-      }
-      fieldset {
-          border: 0px;
-      }
-      legend {
-          visibility: hidden;
-      }
-      ul {
-          display: flex;
-          flex-direction: column;
-          margin-top: -15px;
-          padding: 0px;
-      }
-      li {
-          margin-top: 15px;
-          list-style: none;
-          font-size: 11px;
-          text-align: center;
-      }
-      a, span {
-          text-decoration: none;
-          color: #333;
-      }
-      .top-btn {
-          width: 360px;
-          height: 40px;
-      }
-      .logo {
-          margin-top: 40px;
-          width: 200px;
-          height: 100px;
-      }
-      .input-bar {
-          border: 0px;
-          border-radius: 50px;
-          width: 150px;
-          height: 35px;
-          font-size: 13px;
-          padding-left: 15px;
-          padding-right: 15px;
-      }
-      .login-btn {
-          position: absolute;
-          margin-left: -40px;
-          margin-top: -2px;
-          width: 40px;
-          height: 40px;
-          vertical-align: middle;
-      }
-      .form-icon {
-          width: 30px;
-          height: 30px;
-          vertical-align: middle;
-      }
-      .left-text {
-          margin-right: 15px;
-      }
-      .right-text {
-          margin-left: 15px;
-          font-weight: bold;
-      }
-</style>
 </head>
 <body>
+  <div class="wrapper login-background">
     <div class="top">
-        <img src="images/home-menu-btn.png" class="top-btn" alt="" usemap="#image-map">
+        <img src="images/home-menu-btn.png" class="header-btn" alt="" usemap="#image-map">
         <map name="image-map">
           <area target="" alt="" title="" href="menu-before-login.html" coords="303,2,347,39" shape="rect">
         </map>
     </div>
     <div>
-      <a href="home.html">
+      <a href="index.html">
         <img src="images/home-logo.png" class="logo" alt="기본로고">
       </a>
     </div>
@@ -104,19 +35,20 @@
               <label for="pw">
                 <img src="images/login-pw-icon.png" class="form-icon" alt="">
                 <input class="input-bar" type="password" placeholder="비밀번호" name="pw">
-                <!-- <input type="image" class="login-btn" src="images/login-btn.png"> -->
+                <input type="image" class="login-btn" src="images/login-btn.png">
                 <a href="menu-after-login.html"><img src="images/login-btn.png" class="login-btn" alt=""></a>
               </label>
             </li>
             <li>
               <label for="regi">
                 <span class="left-text">Place now가 처음이신가요?</span>
-                <span class="right-text"><a href="register.html">회원가입</a></span>
+                <span class="right-text"><a href="register-preconsent.html">회원가입</a></span>
               </label>
             </li>
           </ul>
         </fieldset>
       </form>
     </div>
+  </div>
 </body>
 </html>
