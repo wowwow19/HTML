@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .tr1 {
+      width: 100px;
+      height: 100px;
+      background: #09f;
+      transition-duration: 2s, 1s;
+      transition-property: width, height, background, transform;
+      transition-timing-function: ease-in-out;
+      /* transition-delay: .5s; */
+    }
+    .tr1:hover {
+      width: 200px;
+      height: 200px;
+      background: #f90;
+      transform: rotateZ(180deg);
+    }
+    .tr2 > div {
+      transition: all 1s ease .2s;
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+      display: inline-block;
+    }
+    .tr2:hover .box1 {
+      margin-left: 100px;
+    }
+    .tr2:hover .box2 {
+      margin-left: 300px;
+    }
+    .tr2:hover .box3 {
+      margin-left: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tr1"></div>
+  <div class="tr2">
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+    <div class="box3">박스3</div>
+  </div>
+</body>
+</html>

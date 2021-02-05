@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrapper {
+      width: 96%;
+      margin: 0 auto;
+      font-size: 32px;
+    }
+    header {
+      padding: 3.125%;
+      background-color: blue;
+    }
+    header h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 2rem;
+    }
+    section {
+      float: left;
+      width: 62.5%;
+      padding: 1.5625%;
+      min-height: 500px;
+      background-color: orange;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    section img {
+      max-width: 100%;
+    }
+    aside {
+      float: right;
+      width: 31.25%;
+      padding: 1.5625%;
+      min-height: 500px;
+      background-color: green;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    footer {
+      clear: both;
+      padding: 20px;
+      background: red;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>고정그리드 레이아웃</h1>
+    </header>
+    <section>
+      <p>본문</p>
+      <img src="images/fireworks.png" srcset="" alt="">
+    </section>
+    <aside>
+      사이드바
+    </aside>
+    <footer>
+      푸터
+    </footer>
+    <picture>
+      <source srcset="images/shop-large.jpg" media="(min-width:1024px)">
+      <source srcset="images/shop-medium.jpg" media="(min-width:768px)">
+      <source srcset="images/shop-small.jpg" media="(min-width:320px)">
+      <img src="images/shop.jpg" alt="fill with coffee">
+    </picture>
+  </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .origin {
+      display: inline-block;
+      border: 1px solid black;
+      margin: 20px;
+    }
+    .rose {
+      transform: rotateZ(15deg);
+    }
+    .ltop {
+      transform-origin: left top;
+    }
+    .rtop {
+      transform-origin: right top;
+    }
+    .lbot {
+      transform-origin: left bottom;
+    }
+    .rbot {
+      transform-origin: right bottom;
+    }
+
+    .change {
+      transform: rotateX(45deg);
+    }
+    .pers {
+      perspective: 300px;
+    }
+    .per-ori {
+      perspective-origin: 80%;
+    }
+
+    .box {
+      padding: 50px;
+      background: #8dd;
+      font-size: 2em;
+      transform: rotateY(45deg);
+    }
+
+    .back1 {
+      backface-visibility: hidden;
+    }
+    .back2 {
+      backface-visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="origin">
+    <div class="rose"><img src="images/rose.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="ltop rose"><img src="images/rose.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="rtop rose"><img src="images/rose.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="lbot rose"><img src="images/rose.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="rbot rose"><img src="images/rose.jpg" alt=""></div>
+  </div>
+  <hr>
+  <div class="origin">
+    <div><img src="images/sunset.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="change"><img src="images/sunset.jpg" alt=""></div>
+  </div>
+  <div class="origin pers">
+    <div class="change"><img src="images/sunset.jpg" alt=""></div>
+  </div>
+  <div class="origin pers">
+    <div class="change per-ori"><img src="images/sunset.jpg" alt=""></div>
+  </div>
+  <hr>
+  <div class="origin pers">
+    <div class="box back1">가나다라</div>
+  </div>
+  <div class="origin pers">
+    <div class="box back2">가나다라</div>
+  </div>
+</body>
+
+</html>

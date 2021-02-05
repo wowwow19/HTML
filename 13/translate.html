@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .origin {
+      display: inline-block;
+      border: 1px solid black;
+      margin: 20px;
+    }
+    .movex:hover {
+      transform: translateX(50px);
+    }
+    .movey:hover {
+      transform: translateY(20px);
+    }
+    .movexy:hover {
+      transform: translate(10px, 20px);
+      transform: translate3d(10px, 30px, 20px);
+    }
+
+    .scalex:hover {
+      transform: scaleX(1.2);
+    }
+    .scaley:hover {
+      transform: scaleY(1.5);
+    }
+    .scale:hover {
+      transform: scale(.7);
+    }
+
+    .rotate01:hover {
+      transform: rotate(20deg);
+    }
+    .rotate02:hover {
+      transform: rotate(-40deg);
+    }
+
+    /* 입체의 깊이 조정 */
+    .origin {
+      perspective: 200px;
+    }
+    .rotatex:hover {
+      transform: rotateX(45deg);
+    }
+    .rotatey:hover {
+      transform: rotateY(45deg);
+    }
+    .rotatez:hover {
+      transform: rotateZ(45deg);
+    }
+    .rotatexyz:hover {
+      transform: rotate3d(2.5, 1.5, -1.5, 45deg);
+    }
+
+    .skewx:hover {
+      transform: skewX(30deg);
+    }
+    .skewy:hover {
+      transform: skewY(15deg);
+    }
+    .skewxy:hover {
+      transform: skew(-25deg, -15deg);
+    }
+  </style>
+</head>
+<body>
+  <h3>translate</h3>
+  <div class="origin">
+    <div class="movex"><img src="images/bus.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="movey"><img src="images/bus.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="movexy"><img src="images/bus.jpg" alt=""></div>
+  </div>
+  <hr>
+  <h3>scale</h3>
+  <div class="origin">
+    <div class="scalex"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="scaley"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="scale"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <hr>
+  <h3>rotate</h3>
+  <div class="origin">
+    <div class="rotate01"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="rotate02"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <hr>
+  <h3>rotate3d</h3>
+  <div class="origin">
+    <div class="rotatex"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="rotatey"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="rotatez"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="rotatexyz"><img src="images/fruit.jpg" alt=""></div>
+  </div>
+  <hr>
+  <h3>skew</h3>
+  <div class="origin">
+    <div class="skewx"><img src="images/rose.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="skewy"><img src="images/rose.jpg" alt=""></div>
+  </div>
+  <div class="origin">
+    <div class="skewxy"><img src="images/rose.jpg" alt=""></div>
+  </div>
+</body>
+</html>

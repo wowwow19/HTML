@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background: blue;
+      animation-duration: 3s;
+      animation-iteration-count: 2;
+      animation-direction:alternate;
+      animation-fill-mode: forwards;
+    }
+    .box1:hover {
+      animation-name: change;
+      animation-fill-mode: forwards;
+    }
+    @keyframes change {
+      from {
+        background: blue;
+        border: 1px solid black;
+      }
+      to {
+        background: #adf;
+        border: 1px solid blue;
+        border-radius: 50%;
+      }
+    }
+    .chart {
+      width: 800px;
+      margin: 0 auto;
+      border-left: 1px solid black;
+      border-bottom: 1px solid black;
+      padding-top: 15px;
+    }
+    .bar {
+      background: tomato;
+      margin: 30px 0;
+      padding: 10px 0;
+      transition: 2s;
+      opacity: 0;
+      animation: chart 2s ease .2s forwards;
+    }
+    /* .bar:hover {
+      animation-name: chart;
+    } */
+    .w20 {
+      width: 20%;
+    }
+    .w60 {
+      width: 60%;
+    }
+    .w80 {
+      width: 80%;
+    }
+    @keyframes chart {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="box1"></div> -->
+  <h2>성적표</h2>
+  <div class="chart">
+    <div class="bar w60"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar w80"></div>
+    <div class="bar w20"></div>
+  </div>
+</body>
+</html>
