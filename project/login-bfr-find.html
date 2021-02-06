@@ -20,21 +20,21 @@
       </a>
     </div>
     <div class="login-form">
-      <form action="menu-after-login.html">
+      <form action="fine-account.html">
         <fieldset>
           <legend>로그인</legend>
           <ul>
             <li>
               <label for="id">
                 <img src="images/login-user-icon.png" class="form-icon" alt="">
-                <input class="input-bar" type="email" placeholder="이메일주소" name="id" required>
+                <input class="input-bar" type="email" placeholder="이메일주소" name="id" value="babamba@naver.com" required>
               </label>
             </li>
             <li>
               <label for="pw">
                 <img src="images/login-pw-icon.png" class="form-icon" alt="">
-                <input class="input-bar" type="password" placeholder="비밀번호" name="pw" required>
-                <input type="image" class="login-btn" src="images/login-btn.png">
+                <input class="input-bar" type="password" placeholder="비밀번호" name="pw" value="1234" required>
+                <input type="image" class="login-btn" src="images/login-btn.png" onclick="alert('비밀번호를 55회 틀렸습니다.\n계정 찾기 페이지로 이동합니다.')">
               </label>
             </li>
             <li>

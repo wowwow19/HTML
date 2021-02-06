@@ -28,6 +28,16 @@
         transform: translate(0, 5px);
       }
     }
+
+    @keyframes opacity-rank {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
   </style>
   <script>
     $(function () {
@@ -58,21 +68,35 @@
       <a href="index.html"><img src="images/home-logo.png" class="logo" alt="기본로고"></a>
     </div>
 
-    <div class="rank">
-      <ul id="ticker">
-        <li><a href="#"><span>1</span><span class="region-tag">서울・인천</span>홍대입구<span class="rank-no">-</span></a></li>
-        <li><a href="#"><span>2</span><span class="region-tag">서울・인천</span>강남역<span class="rank-no">-</span></a></li>
-        <li><a href="#"><span>3</span><span class="region-tag">부산・경남</span>서면역<span class="rank-up">↑</span></a></li>
-        <li><a href="#"><span>4</span><span class="region-tag">서울・인천</span>코엑스<span class="rank-up">↑</span></a></li>
-        <li><a href="#"><span>5</span><span class="region-tag">서울・인천</span>한강공원<span class="rank-no">-</span></a></li>
-        <li><a href="#"><span>6</span><span class="region-tag">서울・인천</span>가로수길<span class="rank-down">↓</span></a></li>
-        <li><a href="#"><span>7</span><span class="region-tag">대구・경북</span>동성로<span class="rank-up">↑</span></a></li>
-        <li><a href="#"><span>8</span><span class="region-tag">서울・인천</span>부평역<span class="rank-down">↓</span></a></li>
-        <li><a href="#"><span>9</span><span class="region-tag">서울・인천</span>광화문광장<span class="rank-down">↓</span></a>
-        </li>
-        <li><a href="#"><span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을<span class="rank-up">↑</span></a>
-        </li>
-      </ul>
+    <div class="rank-wrapper">
+      <div class="rank chart">
+        <ul id="ticker">
+          <li><a href="#"><span>1</span><span class="region-tag">서울・인천</span>홍대입구<span class="rank-no">-</span></a></li>
+          <li><a href="#"><span>2</span><span class="region-tag">서울・인천</span>강남역<span class="rank-no">-</span></a></li>
+          <li><a href="#"><span>3</span><span class="region-tag">부산・경남</span>서면역<span class="rank-up">↑</span></a></li>
+          <li><a href="#"><span>4</span><span class="region-tag">서울・인천</span>코엑스<span class="rank-up">↑</span></a></li>
+          <li><a href="#"><span>5</span><span class="region-tag">서울・인천</span>한강공원<span class="rank-no">-</span></a></li>
+          <li><a href="#"><span>6</span><span class="region-tag">서울・인천</span>가로수길<span class="rank-down">↓</span></a></li>
+          <li><a href="#"><span>7</span><span class="region-tag">대구・경북</span>동성로<span class="rank-up">↑</span></a></li>
+          <li><a href="#"><span>8</span><span class="region-tag">서울・인천</span>부평역<span class="rank-down">↓</span></a></li>
+          <li><a href="#"><span>9</span><span class="region-tag">서울・인천</span>광화문광장<span class="rank-down">↓</span></a></li>
+          <li><a href="#"><span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을<span class="rank-up">↑</span></a></li>
+        </ul>
+      </div>
+      <div class="rank-popup rank">
+        <ul>
+          <li><a href="#"><span>1</span><span class="region-tag">서울・인천</span>홍대입구<span class="rank-no">-</span></a></li>
+          <li><a href="#"><span>2</span><span class="region-tag">서울・인천</span>강남역<span class="rank-no">-</span></a></li>
+          <li><a href="#"><span>3</span><span class="region-tag">부산・경남</span>서면역<span class="rank-up">↑</span></a></li>
+          <li><a href="#"><span>4</span><span class="region-tag">서울・인천</span>코엑스<span class="rank-up">↑</span></a></li>
+          <li><a href="#"><span>5</span><span class="region-tag">서울・인천</span>한강공원<span class="rank-no">-</span></a></li>
+          <li><a href="#"><span>6</span><span class="region-tag">서울・인천</span>가로수길<span class="rank-down">↓</span></a></li>
+          <li><a href="#"><span>7</span><span class="region-tag">대구・경북</span>동성로<span class="rank-up">↑</span></a></li>
+          <li><a href="#"><span>8</span><span class="region-tag">서울・인천</span>부평역<span class="rank-down">↓</span></a></li>
+          <li><a href="#"><span>9</span><span class="region-tag">서울・인천</span>광화문광장<span class="rank-down">↓</span></a></li>
+          <li><a href="#"><span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을<span class="rank-up">↑</span></a></li>
+        </ul>
+      </div>  
     </div>
 
     <div class="search">

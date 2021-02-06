@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Place now</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
   <script src="js/index.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+  <script type='text/javascript' src='js/jquery.mousewheel.js'></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
   <script>
 
@@ -44,6 +45,18 @@
       });
     });
 
+    // 가로스크롤 활성화
+    $(function () {
+
+      $("nav").mousewheel(function (event, delta) {
+
+        this.scrollLeft -= (delta * 0.5);
+
+        event.preventDefault();
+
+      });
+
+    });
   </script>
 </head>
 
@@ -57,20 +70,20 @@
         <area target="" alt="menu" title="menu" href="menu-before-login.html" coords="298,3,351,46" shape="rect">
       </map>
     </div>
-  
+
     <nav class="nav">
       <ul>
-        <li><a href="place-list-si.html" class="active">서울・인천</a></li>
+        <li><a href="place-list-si.html" class="active">서울·인천</a></li>
         <li><a href="">경기</a></li>
         <li><a href="">강원</a></li>
-        <li><a href="">대전・충청</a></li>
-        <li><a href="">광주・전라</a></li>
-        <li><a href="">대구・경북</a></li>
-        <li><a href="">부산・경남</a></li>
+        <li><a href="">대전·충청</a></li>
+        <li><a href="">광주·전라</a></li>
+        <li><a href="">대구·경북</a></li>
+        <li><a href="">부산·경남</a></li>
         <li><a href="">제주</a></li>
       </ul>
     </nav>
-  
+
     <div class="contents">
       <div class="contents-header">
         <div class="info">
@@ -88,14 +101,14 @@
         </div>
         <div class="fav-shr-btn">
           <span>
-            <i class="fas fa-share-alt"></i>
+            <i class="fas fa-share-alt" id="shr-btn"></i>
           </span>
           <span>
             <i class="far fa-heart" id="fav-btn"></i>
           </span>
         </div>
       </div>
-  
+
       <div class="splide" id="splide">
         <div class="splide__track">
           <ul class="splide__list">
@@ -106,7 +119,7 @@
           </ul>
         </div>
       </div>
-  
+
       <div class="comments-header">
         <span>NOW</span>
         <i class="fas fa-broadcast-tower"></i>
@@ -247,7 +260,7 @@
           </li>
         </ul>
       </div>
-  
+
       <div class="place-footer">
         <form action="">
           <input type="text" placeholder="실시간 정보를 공유해주세요.">

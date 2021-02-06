@@ -56,6 +56,42 @@ a, span {
   color: #333;
 }
 
+/* focus시 링크 테두리 삭제 */
+
+input:focus{
+  border: none;
+  outline:none;
+  outline-style: none;
+  -moz-outline-style:none; 
+}
+
+area:focus{
+  border: none;
+  outline:none;
+  outline-style: none;
+  -moz-outline-style:none; 
+}
+
+img,
+img a {
+  outline: none !important;
+  border: none !important;
+}
+
+pre {
+  white-space:pre-line;
+}
+
+input[type='submit'],
+input[type='text'],
+input[type='email'],
+input[type='password'],
+button,
+select, 
+textarea {
+  -webkit-appearance: none;
+}
+
 .header-btn {
   width: 360px;
   height: 40px;
@@ -70,9 +106,10 @@ a, span {
 /* 지역별 내비게이션바 */
 .nav {
   width: 360px;
-  height: 50px;
+  height: 70px;
   overflow: auto hidden;
   padding-bottom: 5px;
+  
 }
 
 .nav::-webkit-scrollbar {
@@ -80,7 +117,8 @@ a, span {
 }
 
 .nav ul {
-  width: 920px;
+  width: 1100px;
+  height: 80px;
   margin-left: 5px;
 }
 
@@ -160,6 +198,31 @@ a, span {
 .rank-down {
   color: #f11;
   font-weight: bold;
+}
+
+.rank-popup {
+  width: 200px;
+  height: 250px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 30px;
+  color: ;
+  display: none;
+}
+
+.rank-wrapper:hover .rank-popup {
+  position: fixed;
+  margin-top: -30px;
+  margin-left: 0px;
+  display: block;
+  animation: opacity-rank ease 2s alternate;
+}
+
+.rank-popup li {
+  margin-bottom: 5px;
+}
+
+.rank-wrapper:hover .chart {
+  visibility: hidden;
 }
 
 .footer {
@@ -264,7 +327,6 @@ a, span {
   margin-top: -2px;
   width: 40px;
   height: 40px;
-  vertical-align: middle;
 }
 
 .login-form .form-icon {
@@ -323,7 +385,8 @@ a, span {
 .place-list ul {
   width: 360px;
   height: 850px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin-left: 20px;
 }
 
 .place-list li {
@@ -354,7 +417,7 @@ a, span {
 
 .place-list .title {
   width: 130px;
-  margin: 5px 0px 5px 10px;
+  margin: 2px 0px 5px 10px;
   color: #333;
   font-size: 25px;
   font-weight: bold;
@@ -410,7 +473,7 @@ a, span {
 .place-list .congestion span {
   display: inline-block;
   float: left;
-  width: 20px;
+  width: 25px;
   font-size: 11px;
   color: #ccc;
   margin-top: 3px;
@@ -438,9 +501,14 @@ a, span {
 
 /* list-region-place.html */
 
+.contents::-webkit-scrollbar {
+  display: none;
+}
+
 .contents {
   width: 360px;
   overflow: hidden auto;
+  padding-top: 5px;
 }
 
 .contents-header {
@@ -479,7 +547,7 @@ a, span {
 .contents .congestion span {
   display: inline-block;
   float: left;
-  width: 20px;
+  width: 25px;
   font-size: 11px;
   color: #ccc;
   margin-right: 3px;
@@ -513,8 +581,8 @@ a, span {
 .fav-shr-btn {
   display: inline-block;
   width: 80px;
-  padding: 15px 5px 10px 30px;
-  float: right;
+  padding: 15px 5px 10px 10px;
+  float: left;
 }
 
 .fav-shr-btn i {
@@ -547,6 +615,10 @@ a, span {
   width: 350px;
   height: 180px;
   margin: 0px 5px;
+}
+
+.comments::-webkit-scrollbar {
+  display: none;
 }
 
 .contents .comments-header {
@@ -646,8 +718,8 @@ a, span {
 .contents #map {
   width: 350px;
   height: 180px;
-  border: 1px solid #aaa;
-  margin-bottom: -2px;
+  box-shadow: 0 0 0 1px #ccc inset;
+  margin-left: 5px;
 }
 
 .place-footer {
@@ -692,6 +764,11 @@ a, span {
 }
 
 /* register.html */
+
+.form-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .register .title {
   display: inline-block;
   float: left;
@@ -719,7 +796,7 @@ a, span {
   margin-left: 40px;
 }
 
-.register .form tr {
+.form tr {
   height: 50px;
 }
 
@@ -735,6 +812,7 @@ a, span {
   border: 1px solid #eee;
   border-radius: 20px;
   padding-left: 10px;
+  color: #444;
 }
 
 .register .form input:focus {
@@ -751,15 +829,34 @@ a, span {
   color: #ccc;
 }
 
+.form .validation-text {
+  height: 5px;
+  font-size: 10px;
+  color: #0da;
+}
+
+.validation-text td {
+  padding-left: 5px;
+}
+
 .register .select-email {
   width: 100px;
   height: 30px;
   border: 1px solid #eee;
   border-radius: 20px;
   color: #444;
+  padding-left: 15px;
 }
 
-.register button {
+.register .select-arrow {
+  position: absolute;
+  margin-top: 6px;
+  margin-left: -20px;
+  color: #444;
+}
+
+.register button,
+.register input[type='submit'] {
   display: inline-block;
   width: 60px;
   height: 30px;
@@ -769,6 +866,7 @@ a, span {
   background-color: #1af;
   float: right;
   margin-left: 15px;
+  padding-left: 0px;
 }
 
 .register #check {
@@ -815,10 +913,318 @@ a, span {
   margin: 10px 0;
   padding: 10px;
   font-size: 12px;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .terms-btn {
+  display: inline-block;
   margin-top: 20px;
-  margin-left: 170px;
+  float: right;
+}
+
+/* fav-list.html */
+
+#fav-list ul{
+  width: 360px;
+  height: 250px;
+  margin-top: 20px;
+}
+
+.nav .fav-check {
+  font-size: 20px;
+  color: #f77;
+}
+
+/* help.html */
+.board-wrapper {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.help .title {
+  display: inline-block;
+  float: left;
+  width: 320px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.help .title p{
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.board {
+  width: 320px;
+  margin-right: 5px;
+  table-layout: fixed;
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+}
+
+.board,
+.board th,
+.board td {
+  border-top: 1px solid #ccc;
+  border-collapse: collapse;
+  padding: 4px;
+}
+
+.board {
+  border-bottom: hidden;
+}
+
+.board td {
+  height: 25px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.board col:nth-child(1) {
+  width: 12%;
+}
+
+.board col:nth-child(2) {
+  width: 53%;
+}
+
+.board col:nth-child(3),
+.board col:nth-child(4) {
+  width: 17.5%;
+}
+
+.board tr > td:nth-child(2) {
+  text-align: left;
+  padding-left: 5px;
+}
+
+.board tr > td:nth-child(4) {
+  font-size: 11px;
+}
+
+.select-type {
+  width: 90px;
+  height: 23px;
+  border: none;
+  box-shadow: 0 0 0 1px #eee inset;
+  border-radius: 20px;
+  color: #444;
+  padding-left: 10px;
+  font-size: 12px;
+  margin-left: -10px;
+}
+
+.board-search {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+#board-btn {
+  width: 50px;
+  height: 21px;
+  margin-bottom: 10px;
+  color: #eee;
+  background: #1af;
+  border: none;
+  border-radius: 10px;
+}
+
+.notice {
+  background-color: #1af;
+  color: #eee;
+  border-radius: 10px;
+  font-size: 10px;
+  padding: 3px;
+  font-weight: bold;
+}
+
+.page-explore {
+  margin: 10px 0;
+}
+
+.page-explore li {
+  display: inline-block;
+  margin: 10px 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+#current-page {
+  text-decoration: underline;
+}
+
+.board-search input {
+  display: inline-block;
+}
+
+.board-input {
+  width: 110px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 0 1px #eee inset;
+  height: 22px;
+}
+
+.board-input:focus {
+  background: #1af;
+  color: #fff;
+}
+
+.board-search-wrapper {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.help .select-arrow {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 3px;
+}
+
+.private {
+  color: #bbb;
+}
+
+.private i {
+  margin-left: 5px;
+  font-size: 10px;
+}
+
+.help .post-write {
+  margin-top: -10px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  display: inline-block;
+  margin-left: 240px;
+  font-weight: bold;
+}
+
+.post-write i {
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+.board .post-title {
+  text-align: left;
+  font-size: 20px;
+  padding: 10px 15px;
+}
+
+.board .post-info {
+  text-align: left;
+  font-size: 13px;
+  border-top: hidden;
+  padding: 0px 15px;
+  color: #bbb;
+}
+
+
+.board .comment-num {
+  display: inline-block;
+  color: #eee;
+  width: 15px;
+  font-size: 12px;
+  background: #bbb;
+  border-radius: 20px;
+  padding-left: 5px;
+}
+
+.user-profile i {
+  font-size: 45px;
+  color: #ccc;
+  margin-left: 30px;
+}
+
+.board .post-content {
+  height: 100px;
+  text-align: left;
+  padding: 15px;
+}
+
+.board .post-comment {
+  border-top: none;
+}
+
+.board .post-comment i {
+  font-size: 25px;
+  color: #ccc;
+}
+
+.board .post-comments {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.board .post-comment-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding-top: 15px;
+}
+
+.post-comment li {
+  padding: 0 2px;
+}
+
+.post-comment-input input[type='text'] {
+  width: 190px;
+  height: 25px;
+  border: none;
+  box-shadow: 0 0 0 1px #1af inset;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+.post-comment-input input[type='text']:focus {
+  border: none;
+  background-color: #1af;
+  color: white;
+}
+
+.post-comment-input input[type='submit'] {
+  width: 50px;
+  height: 25px;
+  border: none;
+  background: #1af;
+  color: white;
+  border-radius: 20px;
+}
+
+.board .left-btns {
+  float: left;
+}
+
+.board .right-btns {
+  float: right;
+}
+
+.board li {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.board .post-btns {
+  border-top: none;
+  padding: 10px 0px;
+}
+
+.left-btns button,
+.right-btns button {
+  height: 25px;
+  box-shadow: 0 0 0 1px #1af inset;
+  border: none;
+  background: white;
+  color: #444;
+  padding: 0 7px;
+  border-radius: 20px;
+}
+
+#post-board {
+  border-bottom: 1px solid #bbb;
 }

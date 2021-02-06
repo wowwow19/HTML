@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <script src="js/index.js"></script>
+  <script>
+    function delete_check(url) {
+      var answer;
+      answer = confirm("정말로 삭제할까요?");
+      if (answer == true) {
+        location = url;
+      }
+    }
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper help">
+    <div class="header">
+      <img src="images/list-top-btn.png" class="header-btn header-list" alt="" usemap="#image-map">
+      <map name="image-map">
+        <area target="" alt="" title="" href="index.html" coords="10,3,106,45" shape="rect">
+        <area target="" alt="" title="" href="menu-before-login.html" coords="299,3,348,43" shape="rect">
+      </map>
+    </div>
+    <div class="title">
+      <p>문의게시판</p>
+    </div>
+    <div class="board-wrapper">
+      <table class="board" id="post-board">
+        <colgroup>
+          <col>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="2" class="post-title">문의글입니다. <span class="comment-num">1</span></th>
+            <th colspan="2" rowspan="2" class="user-profile"><a href=""><i class="fas fa-user-circle"></i></a></th>
+          </tr>
+          <tr>
+            <td colspan="2" class="post-info">바밤바 | 조회수 392</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4" class="post-content">문의합니다.</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="post-comment">
+              <div>
+                <ul class="post-comments">
+                  <li><i class="fas fa-user-circle"></i></li>
+                  <li><b>관리자</b></li>
+                  <li>답변입니다.</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="post-comment-input">
+                  <li><i class="fas fa-user-circle"></i></li>
+                  <li><input type="text"></li>
+                  <li><input type="submit" value="입력" onclick="alert('금지어가 포함되어있습니다.\n바르고 고운 말을 사용해주세요.')"></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="post-btns">
+              <div class="left-btns">
+                <ul>
+                  <li><button>이전글</button></li>
+                  <li><button onclick="alert('작성자만 볼 수 있습니다.')">다음글</button></li>
+                  <li><button type="button" onclick="location.href='help.html'">목록</button></li>
+                </ul>
+              </div>
+              <div class="right-btns">
+                <ul>
+                  <li><button>수정</button></li>
+                  <li><a href="javascript:delete_check('help-aft-rm.html')"><button>삭제</button></a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td><span class="notice">공지</span></td>
+            <td><a href="#">문의사항만 올려주시길 바랍니다.</a></td>
+            <td>관리자</td>
+            <td>21/02/05</td>
+          </tr>
+          <tr>
+            <td><span>10</span></td>
+            <td><a href="#"><b>문의합니다</b></a></td>
+            <td>바밤바</td>
+            <td>21/02/05</td>
+          </tr>
+          <tr>
+            <td><span>9</span></td>
+            <td><a href="#" class="private" onclick="alert('작성자만 볼 수 있습니다.')">비밀글입니다.<i class="fas fa-lock"></i></a>
+            </td>
+            <td>비비빅</td>
+            <td>21/02/04</td>
+          </tr>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

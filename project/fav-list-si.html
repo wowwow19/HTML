@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -12,9 +13,10 @@
   <script>
     $(function () {
       $("span").click(function () {
-        $(".fav-btn", this).toggleClass("far fas");
+        $(".fav-btn", this).toggleClass("fas far");
       });
     });
+
     $(function () {
 
       $("nav").mousewheel(function (event, delta) {
@@ -27,7 +29,7 @@
 
     });
   </script>
-  <title>Place now</title>
+  <title>Document</title>
 </head>
 
 <body>
@@ -36,15 +38,15 @@
       <img src="images/list-top-btn.png" class="header-btn header-list" alt="" usemap="#image-map">
       <map name="image-map">
         <area target="" alt="" title="" href="index.html" coords="10,3,106,45" shape="rect">
-        <area target="" alt="" title="" href="menu-before-login.html" coords="299,3,348,43" shape="rect">
+        <area target="" alt="" title="" href="menu-after-login.html" coords="299,3,348,43" shape="rect">
       </map>
     </div>
 
     <nav class="nav">
       <ul>
-        <li><a href="place-list-si.html" class="active">서울·인천</a></li>
+        <li><a href="fav-list-si.html" class="active">서울·인천</a><sup class="fav-check">•</sup></li>
         <li><a href="">경기</a></li>
-        <li><a href="">강원</a></li>
+        <li><a href="">강원</a><sup class="fav-check">•</sup></li>
         <li><a href="">대전·충청</a></li>
         <li><a href="">광주·전라</a></li>
         <li><a href="">대구·경북</a></li>
@@ -53,7 +55,7 @@
       </ul>
     </nav>
 
-    <div class="place-list">
+    <div class="place-list" id="fav-list">
       <ul>
         <li>
           <a href="#"><img src="images/list-01.png" class="thumbnail" alt=""></a>
@@ -62,7 +64,7 @@
               <span class="title">경복궁</span>
             </a>
             <span>
-              <i class="far fa-heart fav-btn"></i>
+              <i class="fas fa-heart fav-btn"></i>
             </span>
             <div class="comments">
               <span>아이들 데리고 다니기 좋아요</span>
@@ -92,7 +94,7 @@
               <span class="title">홍대입구</span>
             </a>
             <span>
-              <i class="far fa-heart fav-btn"></i>
+              <i class="fas fa-heart fav-btn"></i>
             </span>
             <div class="comments">
               <span>아이들 데리고 다니기 좋아요</span>
@@ -110,96 +112,6 @@
               <i class="fas fa-circle"></i>
               <a href="#">
                 <span>높음</span>
-                <i class="fas fa-question-circle"></i>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <a href="#"><img src="images/list-03.png" class="thumbnail" alt=""></a>
-          <div class="info">
-            <a href="#">
-              <span class="title">코엑스</span>
-            </a>
-            <span>
-              <i class="far fa-heart fav-btn"></i>
-            </span>
-            <div class="comments">
-              <span>아이들 데리고 다니기 좋아요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">162</span>
-            </div>
-            <div class="comments">
-              <span>힘들기만 했어요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">101</span>
-            </div>
-            <div class="congestion normal">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <a href="#">
-                <span>보통</span>
-                <i class="fas fa-question-circle"></i>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <a href="#"><img src="images/list-04.png" class="thumbnail" alt=""></a>
-          <div class="info">
-            <a href="#">
-              <span class="title">광화문광장</span>
-            </a>
-            <span>
-              <i class="far fa-heart fav-btn"></i>
-            </span>
-            <div class="comments">
-              <span>아이들 데리고 다니기 좋아요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">162</span>
-            </div>
-            <div class="comments">
-              <span>힘들기만 했어요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">101</span>
-            </div>
-            <div class="congestion low">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <a href="#">
-                <span>낮음</span>
-                <i class="fas fa-question-circle"></i>
-              </a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <a href="#"><img src="images/list-05.png" class="thumbnail" alt=""></a>
-          <div class="info">
-            <a href="#">
-              <span class="title">한강공원</span>
-            </a>
-            <span>
-              <i class="far fa-heart fav-btn"></i>
-            </span>
-            <div class="comments">
-              <span>아이들 데리고 다니기 좋아요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">162</span>
-            </div>
-            <div class="comments">
-              <span>힘들기만 했어요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">101</span>
-            </div>
-            <div class="congestion normal">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <a href="#">
-                <span>보통</span>
                 <i class="fas fa-question-circle"></i>
               </a>
             </div>
@@ -212,7 +124,7 @@
               <span class="title">롯데월드타워</span>
             </a>
             <span>
-              <i class="far fa-heart fav-btn"></i>
+              <i class="fas fa-heart fav-btn"></i>
             </span>
             <div class="comments">
               <span>아이들 데리고 다니기 좋아요</span>
@@ -235,38 +147,8 @@
             </div>
           </div>
         </li>
-        <li>
-          <a href="#"><img src="images/list-01.png" class="thumbnail" alt=""></a>
-          <div class="info">
-            <a href="#">
-              <span class="title">가로수길</span>
-            </a>
-            <span>
-              <i class="far fa-heart fav-btn"></i>
-            </span>
-            <div class="comments">
-              <span>아이들 데리고 다니기 좋아요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">162</span>
-            </div>
-            <div class="comments">
-              <span>힘들기만 했어요</span>
-              <img src="images/like-icon.png" alt="">
-              <span class="like-num">101</span>
-            </div>
-            <div class="congestion normal">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <a href="#">
-                <span>보통</span>
-                <i class="fas fa-question-circle"></i>
-              </a>
-            </div>
-          </div>
-        </li>
       </ul>
-      <div class="footer">
+      <!-- <div class="footer">
         <span class="footer-text">더보기</span>
         <a href="#">
           <i class="fas fa-caret-down list-footer-btn"></i>
@@ -274,7 +156,7 @@
       </div>
       <div class="list-up-btn">
         <i class="far fa-caret-square-up"></i>
-      </div>
+      </div> -->
     </div>
   </div>
 </body>

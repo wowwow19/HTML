@@ -3,8 +3,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
   <script src="js/index.js"></script>
-  <title>Document</title>
+  <title>Place now</title>
 </head>
 <body>
   <div class="wrapper register">
@@ -19,13 +20,15 @@
       <p>회원가입</p>
     </div>
     <div class="form">
-      <form action="">
+      <form action="login-bfr-find.html">
         <table>
           <tr>
-            <th>이메일</th>
-            <td><input type="text" name="id" class="short" required></td>
+            <th>이메일*</th>
             <td>
+              <input type="text" name="id" class="short" value="babamba" required>
               <span>@</span>
+            </td>
+            <td>
               <select name="email" class="select-email">
                 <option value="" selected>선택하세요</option>
                 <option value="naver.com">naver.com</option>
@@ -33,32 +36,53 @@
                 <option value="daum.net">daum.net</option>
                 <option value="1">직접입력</option>
               </select>
+              <span><i class="fas fa-sort-down select-arrow"></i></span>
             </td>
           </tr>
-          <tr>
-            <th>비밀번호</th>
-            <td colspan="2"><input type="password" name="pw" required></td>
+          <tr class="validation-text">
+            <td></td>
+            <td>유효한 이메일입니다.</td>
+            <td></td>
           </tr>
           <tr>
-            <th>비밀번호 확인</th>
-            <td colspan="2"><input type="password" name="pw-chk" required></td>
+            <th>비밀번호*</th>
+            <td colspan="2"><input type="password" name="pw" value="1234" required></td>
+          </tr>
+          <tr class="validation-text">
+            <td></td>
+            <td>사용가능한 비밀번호입니다.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>비밀번호 확인*</th>
+            <td colspan="2"><input type="password" name="pw-chk" value="1234" required></td>
+          </tr>
+          <tr class="validation-text">
+            <td></td>
+            <td>비밀번호가 일치합니다.</td>
+            <td></td>
           </tr>
           <tr>
             <th>닉네임</th>
-            <td><input type="text" name="name" class="short" required></td>
-            <td><button id="check">중복확인</button></td>
+            <td><input type="text" name="name" class="short" value="바밤바" required></td>
+            <td><button type="button" id="check" onclick="alert('사용가능한 닉네임입니다')">중복확인</button></td>
+          </tr>
+          <tr class="validation-text">
+            <td></td>
+            <td>사용가능한 닉네임입니다.</td>
+            <td></td>
           </tr>
           <tr>
             <td colspan="3" class="agree">
               <label>
                 <input type="checkbox" name="mail-news" value="consent">
-                이메일로 최신 소식을 받아보겠습니다.
+                [선택] 이메일로 최신 소식을 받아보겠습니다.
               </label>
             </td>
           </tr>
           <tr class="button">
             <td colspan="3">
-              <button type="submit" value="회원가입" onclick="alert('회원가입이 완료되었습니다'); location.href='login.html'">완료</button>
+              <input type="submit" value="완료" onclick="alert('회원가입이 완료되었습니다');">
               <a href="javascript:history.back()"><button type="button" value="prev" id="prev">이전</button></a>
             </td>
           </tr>

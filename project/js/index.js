@@ -41,3 +41,13 @@ function changeImg1(obj, img) {
   var mapimg1 = document.getElementById('map1');
   mapimg1.src = img;
 }
+
+// 모두 선택, 해제 함수
+function selectAll(selectAll) {
+  const checkboxes
+    = document.getElementsByName('consent');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  })
+}
