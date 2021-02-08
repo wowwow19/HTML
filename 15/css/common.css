@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/* 공통 속성 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: white;
+}
+
+a:hover, a:active, a:focus {
+  color: yellow;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+p {
+  font-size: 1.3em;
+  line-height: 2.5;
+}
+
+li {
+  font-size: 1em;
+  line-height: 2;
+}
+
+/* 모바일용 레이아웃 767px 이하 */
+header {
+  height: 300px;
+  background: url(../images/header.jpg) center no-repeat;
+  background-size: cover;
+}
+
+nav {
+  height: 50px;
+  background: #000;
+}
+
+#main-nav {
+  list-style: none;
+  padding: 10px;
+}
+
+#main-nav li {
+  display: inline-block;
+  color: #fff;
+  font-family: "맑은 고딕", 돋움;
+  font-size: .8em;
+  margin: 5px 15px;
+}
+
+/* section */
+section {
+  position: relative;
+  padding: 15px 2% 10px 5%;
+}
+
+#container section:nth-child(odd) {
+  background: #eee;
+}
+
+.page title {
+  position: absolute;
+  top: 20px;
+  padding: 30px 50px;
+}
+
+.content {
+  margin: 80px auto 10px;
+  box-sizing: border-box;
+  width: 90%;
+  padding: 20px;
+}
+
+.content ol {
+  margin-top: 20px;
+}
+
+.sub-titles {
+  color: #09f;
+  font-weight: 600;
+}
+
+.photo {
+  display: none;
+}
+
+/* footer */
+footer {
+  position: relative;
+  height: 100px;
+  background: #000;
+}
+
+footer p {
+  font-family: 'Big Shoulders Display', 돋움;
+  font-size: 1.5em;
+  line-height: 100px;
+  color: white;
+  text-align: center;
+}

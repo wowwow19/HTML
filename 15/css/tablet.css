@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+header {
+  height: 400px;
+}
+
+#intro, #map {
+  box-sizing: border-box;
+  width: 50%;
+  height: 400px;
+  float: left;
+  border: 1px dotted #ccc;
+}
+
+#choice {
+  clear: both;
+}
