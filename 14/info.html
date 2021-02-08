@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    @media screen {
+      h1 {
+        color: red;
+      }
+    }
+    @media print {
+      h1 {
+        color: blue;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- 
@@ -22,12 +34,34 @@
 
     14-3. 가변레이아웃
 
-    14-4. 미디어쿼리
+    14-4. 미디어쿼리(media query)
+      mediaquery : 사용자의 장치에 따라 css를 선택 적용
+        @media [only|not] 미디어 유형 [and 조건] * [and 조건]
+          only : ~에만 적용(기본값, 생략)
+          not : ~를 제외하고 적용
+          ex. @media screen and (min-width:200px) and (max-width:360px) {
+
+              }
 
     14-5. 미디어쿼리 예제
 
     14-6. 플렉스박스 레이아웃
-
+      축
+      main axis
+      cross axis
+      justify-content : 주축배치
+        flex-start : 기본값
+        center
+        space-between
+        space-around
+      align-items : 교차축 내의 배치
+        stretch : 기본값
+        flex-start
+        flex-end
+        center
+        baseline : 텍스트축 기준으로 center 정렬하면서 flex-start 정렬 수행
+      align-content : 교차축 배치
   -->
+  <h1>가나다라</h1>
 </body>
 </html>

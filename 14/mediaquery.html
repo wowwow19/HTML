@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* body {
+      background: url(images/bg0.jpg) no-repeat fixed;
+      background-size: cover;
+    }
+
+    @media screen and (max-width: 1024px) {
+      body {
+        background-image: url(images/bg1.jpg);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      body {
+        background-image: url(images/bg2.jpg);
+      }
+    }
+    @media screen and (max-width: 320px) {
+      body {
+        background-image: url(images/bg3.jpg);
+      }
+    } */
+
+    body {
+      background-color: #eee;
+    }
+
+    @media all and (orientation: landscape) {
+      body {
+        background-color: orange;
+      }
+    }
+    @media all and (orientation: portrait) {
+      body {
+        background-color: yellow;
+      }
+    }
+    </style>
+</head>
+<body>
+    <!-- 
+      미디어 쿼리의 조건
+        - 문서의 너비, 높이
+        - 단말기의 너비, 높이
+          ex. @media all and (min-device-width:320px)
+        - 화면 회전
+          portrait : 세로모드
+          landscape : 가로모드
+        - 화면 비율
+          aspect-ratio (width/height)
+          device-aspect-ratio (width/height)
+          min-device-aspect-ratio (16/9)
+        - 색상당 비트 수
+          min-color
+          max-color
+          ex. @media and (min-color:8)
+    -->
+
+    
+</body>
+</html>
