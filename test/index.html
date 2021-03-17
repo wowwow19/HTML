@@ -9,32 +9,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-  integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
   <style>
     @keyframes moving-btn {
       0% {
         transform: none;
       }
-      
+
       100% {
         transform: translate(0, 0);
       }
     }
-    
+
     @keyframes moving-btn-reset {
       0% {
         transform: none;
       }
-      
+
       100% {
-        transform: translate(0, -5px);
+        transform: translate(0, 5px);
       }
     }
-    </style>
+  </style>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="js/jquery.rwdImageMaps.min.js"></script>
-  <script src='js/jquery.mousewheel.js'></script>
-  <script src="js/index.js"></script>
+  <script src="js/index.js"></script> 
   <title>Place now</title>
 </head>
 
@@ -257,48 +255,17 @@
           </ul>
         </div>
       </div>
-      <div class="search" id="map-search">
-        <img src="images/new-map/home_map.png" class="explore-map" usemap="#image-map" id="map" alt="지도검색">
-        <map name="image-map">
-          <area target="_self" alt="서울인천" title="서울인천" href="place-list-region.html"
-            coords="49,142,126,142,144,156,144,166,169,150,177,169,176,185,154,189,139,176,92,175,48,175,39,160" shape="poly"
-            onmouseover="changeImg('images/new-map/home_map_si_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-          <area target="_self" alt="경기" title="경기" href="place-list-region.html"
-            coords="125,138,149,158,171,148,184,168,175,190,135,197,146,250,169,254,193,255,232,230,244,184,218,160,208,123,217,120,192,101,166,77"
-            shape="poly" onmouseover="changeImg('images/new-map/home_map_gg_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-          <area target="_self" alt="강원" title="강원" href="place-list-region.html"
-            coords="202,71,293,72,320,40,419,226,346,230,272,205,253,148,246,112" shape="poly"
-            onmouseover="changeImg('images/new-map/home_map_gw_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-          <area target="_self" alt="대전충청" title="대전충청" href="place-list-region.html"
-            coords="320,248,238,244,192,274,136,272,105,265,92,291,110,317,69,317,57,334,100,344,115,370,133,388,160,355,184,366,216,384,252,383,269,365,244,350,246,296,294,276"
-            shape="poly" onmouseover="changeImg('images/new-map/home_map_dc_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-          <area target="_self" alt="대구경북" title="대구경북" href="place-list-region.html"
-            coords="426,256,351,256,328,289,291,301,276,325,296,358,285,400,317,437,380,436,419,420,452,429,428,385,429,347,471,341,471,319,422,315,436,284"
-            shape="poly" onmouseover="changeImg('images/new-map/home_map_tk_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-          <area target="_self" alt="광주전라" title="광주전라" href="place-list-region.html"
-            coords="242,403,200,396,146,398,136,437,120,468,96,476,53,473,41,489,67,498,93,501,103,544,113,594,116,609,184,566,244,539,214,487,226,439"
-            shape="poly" onmouseover="changeImg('images/new-map/home_map_gj_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-          <area target="_self" alt="부산경남" title="부산경남" href="place-list-region.html"
-            coords="439,452,351,469,318,457,289,445,275,429,264,435,242,457,256,512,263,535,326,537,350,500,386,512,451,513,455,495"
-            shape="poly" onmouseover="changeImg('images/new-map/home_map_pk_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-          <area target="_self" alt="제주" title="제주" href="place-list-region.html"
-            coords="139,689,97,695,80,688,48,690,32,690,30,711,68,714,68,733,98,729,130,726,144,715,151,700" shape="poly"
-            onmouseover="changeImg('images/new-map/home_map_jj_hv.png')"
-            onmouseout="changeImg('images/new-map/home_map.png')">
-        </map>
+      <div class="search">
+        <form method="GET">
+          <input class="search-input" type="search" placeholder="어디로 갈까요?" name="keyword" autofocus>
+          <input type="image" class="search-btn" src="images/home-search-btn.png" alt="검색버튼">
+        </form>
       </div>
     </div>
     <div class="main-btm">
-      <a href="index.html">
-        <i class="fas fa-sort-up btm-btn"></i>
-        <span>검색하여 찾기</span>
+      <a href="index-map.html">
+        <span>지도로 찾기</span>
+        <i class="fas fa-caret-down btm-btn"></i>
       </a>
     </div>
   </div>

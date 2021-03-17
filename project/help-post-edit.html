@@ -39,53 +39,49 @@
           <col>
           <col>
         </colgroup>
-        <thead>
-          <tr>
-            <th colspan="2" class="post-title">문의합니다 <span class="comment-num">1</span></th>
-            <th colspan="2" rowspan="2" class="user-profile"><a href=""><i class="fas fa-user-circle"></i></a></th>
-          </tr>
-          <tr>
-            <td colspan="2" class="post-info">바밤바 | 조회수 392</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="4" class="post-content">문의합니다.</td>
-          </tr>
-          <tr>
-            <td colspan="4" class="post-comment">
-              <div>
-                <ul class="post-comments">
-                  <li><i class="fas fa-user-circle"></i></li>
-                  <li><b>관리자</b></li>
-                  <li>답변입니다.</li>
-                </ul>
-              </div>
-              <div>
-                <ul class="post-comment-input">
-                  <li><i class="fas fa-user-circle"></i></li>
-                  <li><input type="text"></li>
-                  <li><input type="submit" value="입력" onclick="alert('금지어가 포함되어있습니다.\n바르고 고운 말을 사용해주세요.')"></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="4" class="post-btns">
-              <div class="left-btns">
-                <ul>
-                  <li><button type="button" onclick="location.href='help.html'">목록</button></li>
-                </ul>
-              </div>
-              <div class="right-btns">
-                <ul>
-                  <li><a href="help-post-edit.html"><button>수정</button></a></li>
-                  <li><a href="javascript:delete_check('help-aft-rm.html')"><button>삭제</button></a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-        </tbody>
+        <form action="">
+          <thead>
+            <tr>
+              <th colspan="4" class="post-edit-header">
+                <div class="help-type-container">
+                  <select name="help-type">
+                    <option value="" selected>문의유형</option>
+                    <option value="">오류</option>
+                    <option value="">건의</option>
+                    <option value="">잡담</option>
+                  </select>
+                  <div class="edit-select-arrow">
+                    <i class="fas fa-sort-down"></i>
+                  </div>
+                </div>
+                <div class="post-edit-title">
+                  <input type="text" name="post-title" value="문의합니다">
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="4" class="post-edit-form">
+                <form action="">
+                  <div class="post-edit-input">
+                    <textarea name="" id="" cols="35" rows="10">문의합니다.2</textarea>
+                  </div>
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4" class="post-btns">
+                <div class="right-btns">
+                  <ul>
+                    <li><button onclick="history.back()">취소</button></li>
+                    <li><button id="edit-complete" onclick="location.href='help-post-aft-edit.html'">완료</button></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </form>
         <tfoot>
           <tr>
             <td><span class="notice">공지</span></td>

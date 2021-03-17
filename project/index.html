@@ -1,13 +1,15 @@
 <!DOCTYPE html>
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/index.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b4280e763405f78f741398ca33cfd410"></script>
-  <title>Place now</title>
+  <link rel="stylesheet" href="css/style-tmp.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
   <style>
     @keyframes moving-btn {
       0% {
@@ -28,96 +30,246 @@
         transform: translate(0, 5px);
       }
     }
-
-    @keyframes opacity-rank {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
   </style>
-  <script>
-    $(function () {
-      var ticker = function () {
-        setTimeout(function () {
-          $('#ticker li:first').animate({ marginTop: '-20px' }, 400, function () {
-            $(this).detach().appendTo('ul#ticker').removeAttr('style');
-          });
-          ticker();
-        }, 3000);
-      };
-      ticker();
-    });
-  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/jquery.rwdImageMaps.min.js"></script>
+  <script src='js/jquery.mousewheel.js'></script>
+  <script src="js/index.js"></script>
+  <title>Place now</title>
 </head>
 
 <body>
-
-  <div class="wrapper basic-background">
-    <div class="header">
-      <img src="images/home-menu-btn.png" class="header-btn" alt="" usemap="#image-map">
-      <map name="image-map">
-        <area target="" alt="" title="" href="menu-before-login.html" coords="303,2,347,39" shape="rect">
-      </map>
+  <div class="wrapper index-wrapper">
+    <div class="menu-header">
+      <a href="menu-before-login.html"><i class="fas fa-bars"></i></a>
     </div>
-
-    <div>
-      <a href="index.html"><img src="images/home-logo.png" class="logo" alt="기본로고"></a>
+    <div class="main-logo">
+      <a href="index.html"><img src="images/logo.png" id="main-logo" alt=""></a>
     </div>
-
-    <div class="rank-wrapper">
-      <div class="rank chart">
-        <ul id="ticker">
-          <li><a href="#"><span>1</span><span class="region-tag">서울・인천</span>홍대입구<span class="rank-no">-</span></a></li>
-          <li><a href="#"><span>2</span><span class="region-tag">서울・인천</span>강남역<span class="rank-no">-</span></a></li>
-          <li><a href="#"><span>3</span><span class="region-tag">부산・경남</span>서면역<span class="rank-up">↑</span></a></li>
-          <li><a href="#"><span>4</span><span class="region-tag">서울・인천</span>코엑스<span class="rank-up">↑</span></a></li>
-          <li><a href="#"><span>5</span><span class="region-tag">서울・인천</span>한강공원<span class="rank-no">-</span></a></li>
-          <li><a href="#"><span>6</span><span class="region-tag">서울・인천</span>가로수길<span class="rank-down">↓</span></a></li>
-          <li><a href="#"><span>7</span><span class="region-tag">대구・경북</span>동성로<span class="rank-up">↑</span></a></li>
-          <li><a href="#"><span>8</span><span class="region-tag">서울・인천</span>부평역<span class="rank-down">↓</span></a></li>
-          <li><a href="#"><span>9</span><span class="region-tag">서울・인천</span>광화문광장<span class="rank-down">↓</span></a></li>
-          <li><a href="#"><span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을<span class="rank-up">↑</span></a></li>
-        </ul>
+    <div class="main-mid">
+      <div class="rank-container">
+        <div class="rank chart">
+          <ul id="ticker">
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>1&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>홍대입구
+                </div>
+                <div class="right-text">
+                  <span class="rank-no">-&nbsp;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>2&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>강남역
+                </div>
+                <div class="right-text">
+                  <span class="rank-no">-&nbsp;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>3&nbsp;&nbsp;</span><span class="region-tag">부산・경남</span>서면역
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>4&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>코엑스
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>5&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>한강공원
+                </div>
+                <div class="right-text">
+                  <span class="rank-no">-&nbsp;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>6&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>가로수길
+                </div>
+                <div class="right-text">
+                  <span class="rank-down">↓</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>7&nbsp;&nbsp;</span><span class="region-tag">대구・경북</span>동성로
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>8&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>부평역
+                </div>
+                <div class="right-text">
+                  <span class="rank-down">↓</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>9&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>광화문광장
+                </div>
+                <div class="right-text">
+                  <span class="rank-down">↓</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="rank popup">
+          <ul>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>1&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>홍대입구
+                </div>
+                <div class="right-text">
+                  <span class="rank-no">-&nbsp;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>2&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>강남역
+                </div>
+                <div class="right-text">
+                  <span class="rank-no">-&nbsp;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>3&nbsp;&nbsp;</span><span class="region-tag">부산・경남</span>서면역
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>4&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>코엑스
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>5&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>한강공원
+                </div>
+                <div class="right-text">
+                  <span class="rank-no">-&nbsp;</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>6&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>가로수길
+                </div>
+                <div class="right-text">
+                  <span class="rank-down">↓</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>7&nbsp;&nbsp;</span><span class="region-tag">대구・경북</span>동성로
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>8&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>부평역
+                </div>
+                <div class="right-text">
+                  <span class="rank-down">↓</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>9&nbsp;&nbsp;</span><span class="region-tag">서울・인천</span>광화문광장
+                </div>
+                <div class="right-text">
+                  <span class="rank-down">↓</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="left-text">
+                  <span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을
+                </div>
+                <div class="right-text">
+                  <span class="rank-up">↑</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="rank-popup rank">
-        <ul>
-          <li><a href="#"><span>1</span><span class="region-tag">서울・인천</span>홍대입구<span class="rank-no">-</span></a></li>
-          <li><a href="#"><span>2</span><span class="region-tag">서울・인천</span>강남역<span class="rank-no">-</span></a></li>
-          <li><a href="#"><span>3</span><span class="region-tag">부산・경남</span>서면역<span class="rank-up">↑</span></a></li>
-          <li><a href="#"><span>4</span><span class="region-tag">서울・인천</span>코엑스<span class="rank-up">↑</span></a></li>
-          <li><a href="#"><span>5</span><span class="region-tag">서울・인천</span>한강공원<span class="rank-no">-</span></a></li>
-          <li><a href="#"><span>6</span><span class="region-tag">서울・인천</span>가로수길<span class="rank-down">↓</span></a></li>
-          <li><a href="#"><span>7</span><span class="region-tag">대구・경북</span>동성로<span class="rank-up">↑</span></a></li>
-          <li><a href="#"><span>8</span><span class="region-tag">서울・인천</span>부평역<span class="rank-down">↓</span></a></li>
-          <li><a href="#"><span>9</span><span class="region-tag">서울・인천</span>광화문광장<span class="rank-down">↓</span></a></li>
-          <li><a href="#"><span>10</span><span class="region-tag">광주・전라</span>전주 한옥마을<span class="rank-up">↑</span></a></li>
-        </ul>
-      </div>  
+      <div class="search">
+        <form method="GET">
+          <input class="search-input" type="search" placeholder="어디로 갈까요?" name="keyword" autofocus>
+          <input type="image" class="search-btn" src="images/home-search-btn.png" alt="검색버튼">
+        </form>
+      </div>
     </div>
-
-    <div class="search">
-      <form method="GET">
-        <input class="search-bar" type="search" placeholder="어디로 갈까요?" name="keyword">
-        <a href="place-list-si-01.html"><input type="image" class="search-btn" src="images/home-search-btn.png"></a>
-      </form>
-    </div>
-
-    <div class="footer footer-home">
-      <span class="footer-text">지도로 보기</span>
+    <div class="main-btm">
       <a href="index-map.html">
-        <img src="images/home-btm-down-btn.png" class="footer-btn" alt="">
+        <span>지도로 찾기</span>
+        <i class="fas fa-caret-down btm-btn"></i>
       </a>
     </div>
-
-    <script type="text/javascript">
-      var real_search_keyword = new textScroll('scroll'); // 스크롤링 하고자하는 ul 엘리먼트의 id값을 인자로 넣습니다
-      real_search_keyword.name = "real_search_keyword"; // 인스턴스 네임을 등록합니다
-      real_search_keyword.start(); // 스크롤링 시작
-    </script>
   </div>
 </body>
 

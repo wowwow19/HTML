@@ -1,0 +1,801 @@
+@charset "utf-8";
+
+/* 공통부 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 360px;
+  max-width: 480px;
+  height: 100vh;
+  font-size: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #444;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:400px) {
+
+  body {
+    font-size: 7px;
+  }
+
+}
+
+@media screen and (max-width:450px) {
+
+  body {
+    font-size: 9px;
+  }
+
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}
+
+input:focus{  /* focus시 링크 테두리 삭제 */
+  border: none;
+  outline:none;
+  outline-style: none;
+  -moz-outline-style:none; 
+}
+
+area:focus{
+  border: none;
+  outline:none;
+  outline-style: none;
+  -moz-outline-style:none; 
+}
+
+img,
+img a {
+  outline: none !important;
+  border: none !important;
+}
+
+pre {
+  white-space:pre-line;
+}
+
+input[type='submit'], /* 사파리 기본 input 스타일 해제 */
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+button,
+select, 
+textarea {
+  -webkit-appearance: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* index.html */
+.index-wrapper {
+  width: 100%;
+  height: 130vh;
+  background-color: #f9fbfd;
+}
+
+.menu-header {  /* 상단 메뉴 */
+  width: 90%;
+  text-align: end;
+  font-size: 4em;
+  margin-top: 15px;
+}
+
+.main-logo {  /* 메인 로고 컨테이너 */
+  display: inline-block;
+  width: 60%;
+}
+
+#main-logo {  /* 메인 로고 이미지 */
+  margin-left: auto;
+  width: 100%;
+}
+
+.main-mid { /* 중앙부 컨테이너 */
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rank { /* 실시간 차트 컨테이너 */
+  height: 22px;
+  overflow: hidden;
+  font-size: 1.5em;
+}
+
+.rank li {  
+  text-align: center;
+  line-height: 20px;
+}
+
+.rank li span {
+  font-weight: bold;
+  margin: 5px;
+  text-align: center;
+}
+
+.rank li .region-tag { /* 지역명 태그 */
+  background-color: #758;
+  border-radius: 20px;
+  color: white;
+  font-size: .8em;
+  font-weight: normal;
+  padding: 0 5px 2px 5px;
+}
+
+.rank-up {
+  color: #77f;
+}
+
+.rank-down {
+  color: #f77;
+}
+
+.rank-container .popup {  /* 랭크 차트 팝업창 */
+  width: 240px;
+  height: 300px;
+  background: rgba(255,255,255,0.9);
+  display: none;
+  margin-top: -30px;
+  margin-left: -10px;
+  padding-bottom: 10px;
+  position: absolute;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+
+.rank-container .popup li {
+  clear: both;
+  height: 20px;
+  margin: 10px 5px;
+}
+
+@keyframes opacity-rank { /* 차트 오버시 효과 정의 */
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.search { /* 검색 컨테이너 */
+  position: relative;
+  display: flex;
+  width: 90%;
+  margin-top: 40px;
+}
+
+.search form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.search-input { /* 검색어 입력창 */
+  width: 100%;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding-left: 25px;
+  padding-right: 60px;
+  font-size: 1.5em;
+}
+
+.search-btn { /* 검색버튼 컨테이너 */
+  position: absolute;
+  width: 30px;
+  left: 85%;
+}
+
+.main-btm { /* 하단 버튼 컨테이너 */
+  margin: 40px 0;
+}
+
+.main-btm a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.main-btm i {
+  font-size: 2em;
+  margin-top: 5px;
+}
+
+.btm-btn {  /* 하단 버튼 */
+  animation: moving-btn 1s;
+}
+
+.btm-btn:hover {  /* 하단 버튼 오버시 효과 */
+  animation: moving-btn-reset 1s infinite ease;
+}
+
+.left-text {
+  float: left;
+}
+
+.right-text {
+  float: right;
+}
+
+#map-search { /* 지도 컨테이너 */
+  width: 100%;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.search .explore-map {  /* 지도 이미지 */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* login.html */
+fieldset {
+  border: none;
+}
+
+.login-mid {  /* 중앙 컨테이너 */
+  width: 90%;
+}
+
+.login-form ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 15px;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-bar {  /* 아이콘 + 입력창 컨테이너 */
+  display: flex;
+  align-items: center;
+  width: 55%;
+}
+
+.input-bar i {
+  font-size: 2.5em;
+  margin-right: 10px;
+}
+
+.input-bar input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 3px 3px 3px 20px;
+}
+
+.input-btn {  /* 로그인버튼 컨테이너 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 53px;
+  background: url('../images/login-btn.png') no-repeat center center;
+  background-size: 100%;
+  position: absolute;
+  right: 22%;
+}
+
+.login-btn {  /* 로그인버튼 */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border: none;
+  background: transparent;
+}
+
+.regi-text {
+  width: 55%;
+  font-size: 1.1em;
+}
+
+/* place-list-region.html */
+
+.place-list-wrapper {
+  width: 100%;
+  background-color: #fcfcfc;
+  position: relative;
+}
+
+.logo-header {  /* 상단 메뉴 */
+  width: 90%;
+  font-size: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+.logo-header i {
+  margin-bottom: 30px;
+}
+
+.header-logo {
+  width: 150px;
+}
+
+.header-logo img {
+  width: 100%;
+}
+
+.list-nav {
+  width: 100%;
+  margin-top: -20px;
+  overflow-x: auto;
+}
+
+.nav-wrapper {
+  white-space: nowrap;
+  padding: 0px 10px 20px 10px;
+}
+
+/* 내비게이션바 스크롤바 숨기기 */
+nav::-webkit-scrollbar {
+  display: none;
+}
+
+
+.list-nav li {
+  display: inline-block;
+  font-size: 4em;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.list-nav li a {
+  color: #eee;
+}
+
+.list-nav .active {
+  color: #444;
+  overflow: hidden auto;
+}
+
+.place-list-container {
+  width: 90%;
+  margin: 0px auto;
+  overflow: hidden auto;
+}
+
+.place-list {
+  width: 100%;
+}
+
+.place-list > li {
+  display: flex;
+  clear: both;
+  padding: 7px 5px;
+  width: 100%;
+}
+
+.thumbnail-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 45%;
+  margin: 0;
+}
+
+.place-info {
+  display: inline-block;
+  width: 55%;
+  margin: 0;
+  position: relative;
+}
+
+.place-info ul {
+  height: 90%;
+}
+
+.place-info li {
+  margin: 2%;
+}
+
+.place-list .thumbnail {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.place-icon {
+  position: absolute;
+  font-size: 1em;
+  top: 10px;
+  left: 10px
+}
+
+.place-icon span {
+  background-color: #f77;
+  color: #eee;
+  font-weight: bold;
+  padding: 0 2px;
+}
+
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.7em;
+  font-weight: 500;
+  padding: 0px 10px;
+}
+
+.place-name {
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.place-address {
+  font-size: 0.4em;
+  color: #777;
+  white-space: normal;
+}
+
+.fav-btn-wrapper {
+  width: 30%;
+  color: #f88;
+}
+
+.fav-btn-wrapper > div {
+  float: right;
+  text-align: center;
+}
+
+.fav-num {
+  font-size: 0.4em;
+}
+
+.comments li {
+  width: 100%;
+  margin: 2% 10px;
+  overflow: scroll;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.comments span {
+  font-size: 1.2em;
+  margin: 0 2px;
+}
+
+.like-num {
+  font-weight: bold;
+}
+
+.info-btm {
+  display: flex;
+  width: 87%;
+  padding: 0 10px;
+  position: absolute;
+  justify-content: space-between;
+  bottom: 10px;
+}
+
+.place-comment {
+  float: right;
+  font-size: 1.2em;
+}
+
+.place-popularity {
+  display: flex;
+  font-size: 1.2em;
+  margin: 0 2px;
+  float: left;
+}
+
+.congestion {
+  color: #eee;
+}
+
+.low > i:nth-child(1) {
+  color: cornflowerblue;
+}
+
+.normal > i:nth-child(1),
+.normal > i:nth-child(2) {
+  color: #fb5;
+}
+
+.high > i:nth-child(1),
+.high > i:nth-child(2),
+.high > i:nth-child(3) {
+  color: tomato;
+}
+
+.congestion-text {
+  color: #ccc;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.more-btn {
+  margin-top: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.move-top-btn {
+  display: inline-block;
+  position: sticky;
+  margin-left: 80%;
+  bottom: 20px;
+  z-index: 2;
+}
+
+.move-top-btn i {
+  font-size: 4em;
+  opacity: .3;
+}
+
+@media screen and (max-width:767px) {
+
+  .place-title  {
+    overflow: scroll;
+  }
+
+}
+
+.congestion-popup {
+  display: none;
+  position: fixed;
+  top: 35vh;
+  border: 1px solid #444;
+  border-radius: 20px;
+  background-color: #fcfcfc;
+  padding: 15px 25px;
+  font-size: 1.5em;
+  z-index: 3;
+}
+
+.congestion-popup button {
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+  width: 35%;
+  height: 30px;
+  border: 1px solid #444;
+  background-color: #fcfcfc;
+  border-radius: 15px;
+}
+
+.modal-layer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  z-index: 2;
+}
+
+/* place-list-region-place.html */
+.place-page-container {
+  width: 90%;
+  position: relative;
+}
+
+.place-page-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.place-page-info .info-left {
+  width: 80%;
+}
+
+.place-page-info .place-title {
+  float: left;
+  font-weight: 500;
+  font-size: 3.5em;
+  max-width: 50%;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.place-page-info .place-popularity {
+  margin: 0 20px;
+  padding-top: 20px;
+}
+
+.place-page-info .place-address {
+  clear: both;
+  font-size: 1.1em;
+}
+
+.place-page-info .info-right {
+  width: 20%;
+  font-size: 3em;
+  display: flex;
+}
+
+.place-page-info .shr-btn-wrapper {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.place-page-info .fav-btn-wrapper {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.place-page-pictures {
+  margin-top: 20px;
+}
+
+.splide__list li {
+  margin-right: 10px;
+}
+
+.place-page-pictures img{
+  width: 100%;
+  border-radius: 20px;
+}
+
+.comments-logo {
+  width: 80%;
+  font-size: 3em;
+  margin-top: 10px;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+.comments-logo i {
+  font-size: .8em;
+  color: #f77;
+  padding-bottom: 15px;
+}
+
+.place-page-comment-input {
+  width: 100%;
+  height: 50px;
+  position: sticky;
+  bottom: 0;
+  text-align: center;
+  padding-top: 10px;
+  background-color: rgba(200,200,200,.1);
+  border-top: 1px solid #eee;
+}
+
+.emoji-btn {
+  display: inline-block;
+  position: absolute;
+  font-size: 25px;
+  color: #777;
+  left: 7%;
+  bottom: 15px;
+}
+
+.place-page-comment-input input {
+  width: 70%;
+  height: 35px;
+  padding: 0 10%;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+}
+
+.place-page-comment-input button {
+  width: 10%;
+  height: 25px;
+  position: absolute;
+  top: 27%;
+  right: 6%;
+  border: none;
+  border-left: 1px solid #ccc;
+  background-color: transparent;
+}
+
+.place-page-comment-input button span {
+  font-size: 1em;
+  font-weight: bold;
+  color: #99f;
+  opacity: 0.5;
+}
+
+.place-page-comments {
+  box-shadow: 0px 4px 4px -4px #ccc inset;
+  padding: 10px 0;
+}
+
+.comments-more-btn button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 20px;
+  color: #777;
+  background-color: #efefef;
+}
+
+.place-page-comments li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.comment-info {
+  display: inline-block;
+  max-width: 80%;
+  border: 1px solid #eef;
+  border-radius: 20px;
+  padding: 8px 15px;
+}
+
+.comment-content {
+  font-size: 1.3em;
+}
+
+.comment-write-date {
+  color: #ccc;
+}
+
+.comment-like {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.comment-menu {
+  display: inline-block;
+  visibility: hidden;
+  margin: auto 10px;
+  height: 30%;
+  font-size: 1.5em;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.comment-menu-list {
+  display: none;
+  width: 10%;
+  background-color: #fefefe;
+  position: absolute;
+  padding-left: 4%;
+  right: -2%;
+  box-shadow: 1px 1px 2px 1px #ddd;
+  font-size: .8em;
+}

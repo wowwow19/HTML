@@ -10,31 +10,29 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
   integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/index.js"></script>
   <style>
     @keyframes moving-btn {
       0% {
         transform: none;
       }
-      
+
       100% {
         transform: translate(0, 0);
       }
     }
-    
+
     @keyframes moving-btn-reset {
       0% {
         transform: none;
       }
-      
+
       100% {
         transform: translate(0, -5px);
       }
     }
-    </style>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="js/jquery.rwdImageMaps.min.js"></script>
-  <script src='js/jquery.mousewheel.js'></script>
-  <script src="js/index.js"></script>
+  </style>
   <title>Place now</title>
 </head>
 
@@ -302,6 +300,14 @@
       </a>
     </div>
   </div>
+  <!-- 반응형 map 좌표변환 jquery -->
+  <script src="js/jquery.rwdImageMaps.min.js"></script>
+  <script>
+    $(document).ready(function (e) {
+      $('img[usemap]').rwdImageMaps();
+    });
+  </script>
+
 </body>
 
 </html>

@@ -10,57 +10,30 @@ $(function () {
   };
   ticker();
 
-  $('img[usemap]').rwdImageMaps();
-  
-  // 즐겨찾기 토글
-  $("span").click(function () {
-    $("#fav-btn", this).toggleClass("far fas");
+  $(window).click(function() {
+    $(".popup").css("display", "none");
   });
 
-  // 좋아요 토글
+});
+
+// 즐겨찾기 토글
+$(function () {
+  $("span").click(function () {
+    $("#fav-btn", this).toggleClass("far fas");
+  }); 
+});
+
+// 좋아요 토글
+$(function () {
   $("span").click(function () {
     $("#like-btn", this).toggleClass("like-btn like-btn-clicked");
   });
+});
 
+$(function () {
   $("span").click(function () {
     $("#like-btn", this).toggleClass("far fas");
   });
-
-  // 스크롤 방향 변경 함수
-  $("nav").mousewheel(function (event, delta) {
-
-    this.scrollLeft -= (delta * 0.5);
-
-    event.preventDefault();
-
-  });
-
-  if($(window).width() > 767) {
-    $(".chart").mouseenter(function() {
-      $(".popup").css("display", "block");
-      $(".chart").css("visibility", "hidden");
-    });
-
-    $(".popup").mouseleave(function() {
-      $(".popup").css("display", "none");
-      $(".chart").css("visibility", "visible");
-    });
-  } else {
-    $(".chart").click(function() {
-      $(".popup").css("display", "block");
-      $(".chart").css("visibility", "hidden");
-    });
-
-    $(document).mouseup(function(e) {
-      var popup = $(".popup");
-      var chart = $(".chart");
-      if(popup.has(e.target).length === 0){
-        popup.css("display", "none");
-        chart.css("visibility", "visible");
-        }
-    });
-  }
-
 });
 
 // 오버시 이미지 교체 함수
@@ -83,5 +56,19 @@ function selectAll(selectAll) {
     checkbox.checked = selectAll.checked;
   })
 }
+
+// 스크롤 방향 변경 함수
+$(function () {
+
+  $("nav").mousewheel(function (event, delta) {
+
+    this.scrollLeft -= (delta * 0.5);
+
+    event.preventDefault();
+
+  });
+
+});
+
 
 

@@ -930,7 +930,8 @@ textarea {
   margin-top: 20px;
 }
 
-.nav .fav-check {
+.nav .fav-check,
+.menu-list .fav-check {
   font-size: 20px;
   color: #f77;
 }
@@ -1174,7 +1175,7 @@ textarea {
 
 .post-comment-input input[type='text'] {
   width: 190px;
-  height: 25px;
+  height: 30px;
   border: none;
   box-shadow: 0 0 0 1px #1af inset;
   border-radius: 20px;
@@ -1189,7 +1190,7 @@ textarea {
 
 .post-comment-input input[type='submit'] {
   width: 50px;
-  height: 25px;
+  height: 30px;
   border: none;
   background: #1af;
   color: white;
@@ -1216,7 +1217,8 @@ textarea {
 
 .left-btns button,
 .right-btns button {
-  height: 25px;
+  width: 45px;
+  height: 30px;
   box-shadow: 0 0 0 1px #1af inset;
   border: none;
   background: white;
@@ -1227,4 +1229,54 @@ textarea {
 
 #post-board {
   border-bottom: 1px solid #bbb;
+}
+
+
+.help-type-container {
+  float: left;
+  margin-top: 3px;
+}
+
+.help-type-container select {
+  width: 75px;
+  height: 25px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-top: -2px;
+  padding-left: 5px;
+}
+
+.post-edit-title input {
+  width: 220px;
+  height: 15px;
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid #eee;
+}
+
+.post-edit-input {
+  clear: both;
+}
+
+.post-edit-form form {
+  float: left;
+}
+
+.edit-select-arrow {
+  position: absolute;
+  margin-top: -21px;
+  margin-left: 60px;
+}
+
+.post-edit-input {
+  margin-top: 10px;
+}
+
+.post-edit-input textarea {
+  padding: 5px;
+}
+
+#edit-complete {
+  background: #1af;
+  color: white;
 }

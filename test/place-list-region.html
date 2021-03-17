@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style-tmp.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src='js/jquery.mousewheel.js'></script>
+  <script>
+    $(function () {
+
+      init();
+
+      $(".congestion-text span").each(function() {
+        var congestion = $(this).text();
+        if(congestion === "보통") {
+          $(this).parent().prev().addClass("normal");
+        } else if(congestion === "낮음") {
+          $(this).parent().prev().addClass("low");
+        } else {
+          $(this).parent().prev().addClass("high");
+        }
+      });
+
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) {
+          $("#move-top-btn").fadeIn();
+        } else {
+          $("#move-top-btn").fadeOut();
+        }
+      });
+        
+      $("#move-top-btn").click(function() {
+        $("html, body").animate({
+          scrollTop : 0
+        }, 400);
+        return false;
+      });
+
+      $(".more-btn").click(function() {
+        $(".place-list > li").each(function() {
+          $(".place-list").append($(this).clone());
+        });
+        init();
+      });
+
+      $("nav").mousewheel(function (event, delta) {
+        this.scrollLeft -= (delta * 0.5);
+        event.preventDefault();
+      });
+
+    });
+
+    function init() {
+      toggle();
+      popupShow();
+      popupHide();
+      if($(window).width() > 767) {
+        textScroll();
+        textScrollBack();
+      }
+    }
+
+    function toggle() {
+      $(".fav-btn").off().click(function() {
+        $(this).toggleClass("far fas");
+
+        var favNum = parseInt($(this).next().text());
+        if($(this).hasClass("far")) {
+          $(this).next().text(favNum-1);
+        } else {
+          $(this).next().text(favNum+1);
+        }
+      });
+    }
+
+    function textScroll() {
+      var maxWidth = $(".place-name").width();
+      $(".place-list > li").mouseenter(function() {
+        var width = $(this).find(".place-title span").width();
+        if(width > maxWidth) {
+          var diff = width - maxWidth;
+          $(this).find(".place-title span").css("margin-left", -diff).css("transition", "1.5s");
+        }
+      });
+    }
+
+    function textScrollBack() {
+      $(".place-list > li").mouseleave(function() {
+        $(this).find(".place-title span").css("margin-left", 0);
+      });
+    }
+
+    function popupShow() {
+      $(".congestion-text").click(function() {
+        $(".congestion-popup").show();
+        $(".modal-layer").show();
+        $("body").css("overflow", "hidden");
+      });
+    }
+
+    function popupHide() {
+      $(".congestion-popup button").click(function() {
+        $(".congestion-popup").hide();
+        $(".modal-layer").hide();
+        $("body").css("overflow", "auto");
+      });
+
+      $(document).mouseup(function (e){
+        var popup = $(".congestion-popup");
+        var layer = $(".modal-layer");
+        if(layer.has(e.target).length === 0){
+          popup.hide();
+          layer.hide();
+          $("body").css("overflow", "auto");
+        }
+      });
+    }
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper place-list-wrapper">
+    <div class="menu-header logo-header">
+      <div class="header-logo">
+        <a href="index.html"><img src="images/logo.png" alt=""></a>
+      </div>
+      <div>
+        <a href="menu-before-login.html"><i class="fas fa-bars"></i></a>
+      </div>
+    </div>
+
+    <nav class="list-nav">
+      <div class="nav-wrapper">
+        <ul>
+          <li><a href="place-list-region.html" class="active">서울·인천</a></li>
+          <li><a href="">경기</a></li>
+          <li><a href="">강원</a></li>
+          <li><a href="">대전·충청</a></li>
+          <li><a href="">광주·전라</a></li>
+          <li><a href="">대구·경북</a></li>
+          <li><a href="">부산·경남</a></li>
+          <li><a href="">제주</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="congestion-popup">
+      <span><b>인기도</b>란?<br>일정기간 SNS상의 태그 언급 횟수와<br>즐겨찾기 수에 따라 추정되는 수치입니다.</span>
+      <button>닫기</button>
+    </div>    
+    <div class="modal-layer"></div>
+
+    <div class="place-list-container">
+      <ul class="place-list">
+        <!-- 1. 경복궁 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-01.png" class="thumbnail" alt=""></a>
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-region-place01.html">
+                      <span>경복궁</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 종로구 사직로 161</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">1674</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>보통</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 3558</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 2. 홍대입구 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-02.png" class="thumbnail" alt=""></a>
+            <div class="place-icon">
+              <span>HOT</span>
+            </div>  
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>홍대입구</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 마포구 양화로 160</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">1893</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>높음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                <div class="place-comment">
+                  <span class="comment-num"><i class="fas fa-comment"></i> 5822</span>
+                </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 3. 코엑스 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-03.png" class="thumbnail" alt=""></a>
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>코엑스</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 강남구 영동대로 513</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">1079</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>높음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 3227</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 4. 광화문광장 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-04.png" class="thumbnail" alt=""></a>
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>광화문광장</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 종로구 세종대로 172</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">804</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>높음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 1490</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 5. 한강공원  -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-05.png" class="thumbnail" alt=""></a>
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>한강공원</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 영등포구 여의동로 330</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">1739</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>낮음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 2296</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 6. 롯데월드타워  -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-06.png" class="thumbnail" alt=""></a>
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>롯데월드타워</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 송파구 올림픽로 300</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">851</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>보통</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 1328</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 7. 가로수길 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-07.png" class="thumbnail" alt=""></a>
+            <div class="place-icon">
+              <span>HOT</span>
+            </div>  
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>가로수길</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 강남구 신사동</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">1528</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>낮음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 2704</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 8. 인천 차이나타운 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-08.png" class="thumbnail" alt=""></a>
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>인천 차이나타운</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>인천광역시 중구 차이나타운로59번길 12</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">577</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>낮음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 721</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 9. 더 현대 서울 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-09.png" class="thumbnail" alt=""></a>
+            <div class="place-icon">
+              <span>NEW</span>
+              <span>HOT</span>
+            </div>  
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>더 현대 서울</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>서울특별시 영등포구 여의대로 108</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">72</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>높음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 117</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!-- 10. 인천공항 -->
+        <li>
+          <div class="thumbnail-wrapper">
+            <a href="place-list-si-01.html"><img src="images/list-10.png" class="thumbnail" alt=""></a>
+          </div>
+          <div class="place-info">
+            <ul>
+              <li class="info-top">
+                <div class="place-name">
+                  <div class="place-title">
+                    <a href="place-list-si-01.html">
+                      <span>인천공항</span>
+                    </a>
+                  </div>
+                  <div class="place-address">
+                    <span>인천광역시 중구 공항로 271</span>
+                  </div>  
+                </div>
+                <div class="fav-btn-wrapper">
+                  <div>
+                    <i class="far fa-heart fav-btn"></i>
+                    <p class="fav-num">994</p>
+                  </div>
+                </div>
+              </li>
+              <li class="info-btm">
+                <div class="place-popularity">
+                  <div class="congestion">
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="congestion-text">
+                    <span>낮음</span>
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                  <div class="place-comment">
+                    <span class="comment-num"><i class="fas fa-comment"></i> 3125</span>
+                  </div>  
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="more-btn">
+      <span>더보기</span>
+      <i class="fas fa-caret-down"></i>
+    </div>
+    <div class="move-top-btn">
+      <a href="" id="move-top-btn"><i class="fas fa-chevron-up"></i></a>
+    </div>
+  </div>
+</body>
+
+</html>

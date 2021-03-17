@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+  <link rel="stylesheet" href="css/style-tmp.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+  <script src='js/jquery.mousewheel.js'></script>
+  <script>
+    $(function () {
+
+      init();
+
+      $(".congestion-text span").each(function() {
+        var congestion = $(this).text();
+        if(congestion === "보통") {
+          $(this).parent().prev().addClass("normal");
+        } else if(congestion === "낮음") {
+          $(this).parent().prev().addClass("low");
+        } else {
+          $(this).parent().prev().addClass("high");
+        }
+      });
+
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) {
+          $("#move-top-btn").fadeIn();
+        } else {
+          $("#move-top-btn").fadeOut();
+        }
+      });
+        
+      $("#move-top-btn").click(function() {
+        $("html, body").animate({
+          scrollTop : 0
+        }, 400);
+        return false;
+      });
+
+      $(".more-btn").click(function() {
+        $(".place-list > li").each(function() {
+          $(".place-list").append($(this).clone());
+        });
+        init();
+      });
+
+      $("nav").mousewheel(function (event, delta) {
+        this.scrollLeft -= (delta * 0.5);
+        event.preventDefault();
+      });
+      
+    });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('#splide', {
+        type: 'loop',
+        padding: {
+          right: '5rem',
+          left: '5rem',
+        },
+      }).mount();
+    });
+
+    function init() {
+      toggle();
+      popupShow();
+      popupHide();
+      buttonToggle();
+      if($(window).width() > 767) {
+        textScroll();
+        textScrollBack();
+      }
+    }
+
+    function toggle() {
+      $(".fav-btn").off().click(function() {
+        $(this).toggleClass("far fas");
+
+        var favNum = parseInt($(this).next().text());
+        if($(this).hasClass("far")) {
+          $(this).next().text(favNum-1);
+        } else {
+          $(this).next().text(favNum+1);
+        }
+      });
+    }
+
+    function textScroll() {
+      var maxWidth = $(".place-name").width();
+      $(".place-list > li").mouseenter(function() {
+        var width = $(this).find(".place-title span").width();
+        if(width > maxWidth) {
+          var diff = width - maxWidth;
+          $(this).find(".place-title span").css("margin-left", -diff).css("transition", "1.5s");
+        }
+      });
+    }
+
+    function textScrollBack() {
+      $(".place-list > li").mouseleave(function() {
+        $(this).find(".place-title span").css("margin-left", 0);
+      });
+    }
+
+    function popupShow() {
+      $(".congestion-text").click(function() {
+        $(".congestion-popup").show();
+        $(".modal-layer").show();
+        $("body").css("overflow", "hidden");
+      });
+    }
+
+    function popupHide() {
+      $(".congestion-popup button").click(function() {
+        $(".congestion-popup").hide();
+        $(".modal-layer").hide();
+        $("body").css("overflow", "auto");
+      });
+
+      $(document).mouseup(function (e){
+        var popup = $(".congestion-popup");
+        var layer = $(".modal-layer");
+        if(layer.has(e.target).length === 0){
+          popup.hide();
+          layer.hide();
+          $("body").css("overflow", "auto");
+        }
+      });
+    }
+
+    function buttonToggle() {
+      $(".place-page-comment-input input").on("change keyup paste", function() {
+        var button = $(".place-page-comment-input button span");
+        $(button).css("opacity", "1");
+
+        if($(this).val() == "") {
+          $(button).css("opacity", "0.5");
+        }
+      });
+    }
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper place-list-wrapper">
+    <div class="menu-header logo-header">
+      <div class="header-logo">
+        <a href="index.html"><img src="images/logo.png" alt=""></a>
+      </div>
+      <div>
+        <a href="menu-before-login.html"><i class="fas fa-bars"></i></a>
+      </div>
+    </div>
+
+    <nav class="list-nav">
+      <div class="nav-wrapper">
+        <ul>
+          <li><a href="place-list-region.html" class="active">서울·인천</a></li>
+          <li><a href="">경기</a></li>
+          <li><a href="">강원</a></li>
+          <li><a href="">대전·충청</a></li>
+          <li><a href="">광주·전라</a></li>
+          <li><a href="">대구·경북</a></li>
+          <li><a href="">부산·경남</a></li>
+          <li><a href="">제주</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="congestion-popup">
+      <span><b>인기도</b>란?<br>일정기간 SNS상의 태그 언급 횟수와<br>즐겨찾기 수에 따라 추정되는 수치입니다.</span>
+      <button>닫기</button>
+    </div>    
+    <div class="modal-layer"></div>
+
+    <div class="place-page-container">
+      <div class="place-page-info">
+        <div class="info-left">
+          <div class="place-title">
+            <a href="place-list-si-01.html">
+              <span>경복궁</span>
+            </a>
+          </div>
+          <div class="place-popularity">
+            <div class="congestion">
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+              <i class="fas fa-circle"></i>
+            </div>
+            <div class="congestion-text">
+              <span>보통</span>
+              <i class="fas fa-question-circle"></i>
+            </div>
+          </div>
+          <div class="place-address">
+            <span>서울특별시 종로구 사직로 161</span>
+            <a href="#"><b>위치보기</b></a>
+          </div>
+        </div>
+        <div class="info-right">
+          <div class="shr-btn-wrapper">
+            <i class="fas fa-share-alt shr-btn"></i>
+          </div>
+          <div class="fav-btn-wrapper">
+            <i class="far fa-heart fav-btn"></i>
+            <p class="fav-num">1674</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="place-page-pictures">
+        <div class="splide" id="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide"><img src="images/list-01.png" alt=""></li>
+              <li class="splide__slide"><img src="images/list-01-02.png" alt=""></li>
+              <li class="splide__slide"><img src="images/list-01-03.png" alt=""></li>
+              <li class="splide__slide"><img src="images/list-01-04.png" alt=""></li>
+            </ul>
+          </div>
+        </div>  
+      </div>
+
+      <div class="comments-logo">
+        <span>NOW</span>
+        <i class="fas fa-broadcast-tower"></i>
+      </div>
+      <div class="place-page-comments">
+        <ul>
+          <li>
+            <div class="comments-box">
+              아이들 데리고 다니기 좋아요
+              <span>9일전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">162</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              힘들기만 했어요
+              <span>7일전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">122</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세
+              <span>3일전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">101</span>
+            </div>
+          </li>
+          <li id="my-comment">
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">88</span>
+            </div>
+            <div class="comments-box">
+              데이트할 때는 가지마세요
+              <span>3일전</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              최고에요
+              <span>하루전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">52</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              지금 시간대엔 한적했어요
+              <span>13시간전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">29</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              멋있어요
+              <span>2시간전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">15</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              오전 10시, 오후 2시에 수문장 교대식이 있습니다.
+              <span>40분전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">11</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              오늘은 야간개장날입니다.
+              <span>27분전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">4</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              입장료가 인하됐어요
+              <span>5분전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">0</span>
+            </div>
+          </li>
+          <li>
+            <div class="comments-box">
+              한복입으면 입장료 무료에요
+              <span>방금전</span>
+            </div>
+            <div class="comments-like">
+              <span>
+                <i class="far fa-thumbs-up like-btn" id="like-btn"></i>
+              </span>
+              <span class="like-num">0</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="place-page-comment-input">
+      <form action="">
+        <input type="text" placeholder="실시간 정보를 공유해주세요.">
+        <button><span>입력</span></button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
