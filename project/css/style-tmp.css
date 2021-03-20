@@ -170,21 +170,14 @@ textarea {
   margin: 10px 5px;
 }
 
-@keyframes opacity-rank { /* 차트 오버시 효과 정의 */
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 .search { /* 검색 컨테이너 */
   position: relative;
-  display: flex;
   width: 90%;
+  margin: 0 auto;
   margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search form {
@@ -192,11 +185,18 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+}
+
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .search-input { /* 검색어 입력창 */
-  width: 100%;
+  width: 95%;
   height: 50px;
   border: 1px solid white;
   border-radius: 30px;
@@ -211,15 +211,23 @@ textarea {
   left: 85%;
 }
 
-.main-btm { /* 하단 버튼 컨테이너 */
-  margin: 40px 0;
+.search-map-wrapper { /* 지도 컨테이너 */
+  width: 100%;
+  display: none;
 }
 
-.main-btm a {
+.search .explore-map {  /* 지도 이미지 */
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main-btm { /* 하단 버튼 컨테이너 */
+  margin: 40px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.5em;
+  cursor: pointer;
 }
 
 .main-btm i {
@@ -227,12 +235,20 @@ textarea {
   margin-top: 5px;
 }
 
-.btm-btn {  /* 하단 버튼 */
-  animation: moving-btn 1s;
+.down-btn {  /* 하단 버튼 */
+  animation: down-btn 1s;
 }
 
-.btm-btn:hover {  /* 하단 버튼 오버시 효과 */
-  animation: moving-btn-reset 1s infinite ease;
+.down-btn:hover {  /* 하단 버튼 오버시 효과 */
+  animation: down-btn-reset 1s infinite ease;
+}
+
+.up-btn {  /* 하단 버튼 */
+  animation: up-btn 1s;
+}
+
+.up-btn:hover {  /* 하단 버튼 오버시 효과 */
+  animation: up-btn-reset 1s infinite ease;
 }
 
 .left-text {
@@ -243,16 +259,58 @@ textarea {
   float: right;
 }
 
-#map-search { /* 지도 컨테이너 */
-  width: 100%;
-  align-items: flex-start;
-  overflow: hidden;
+@keyframes opacity-rank { /* 차트 오버시 효과 정의 */
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-.search .explore-map {  /* 지도 이미지 */
-  max-width: 90%;
-  margin: 0 auto;
+@keyframes down-btn {
+  0% {
+    transform: none;
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }
+
+@keyframes down-btn-reset {
+  0% {
+    transform: none;
+  }
+
+  100% {
+    transform: translate(0, 5px);
+  }
+}
+
+@keyframes up-btn {
+  0% {
+    transform: none;
+  }
+  
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes up-btn-reset {
+  0% {
+    transform: none;
+  }
+  
+  100% {
+    transform: translate(0, -5px);
+  }
+}
+
+
+
 
 /* login.html */
 fieldset {
@@ -546,18 +604,17 @@ nav::-webkit-scrollbar {
   cursor: pointer;
 }
 
-.more-btn {
-  margin-top: 20px;
-  font-size: 1.5em;
-  cursor: pointer;
+#list-more-btn {
+  margin: 20px 0;
 }
 
 .move-top-btn {
   display: inline-block;
   position: sticky;
+  height: 0;
   margin-left: 80%;
-  bottom: 20px;
-  z-index: 2;
+  bottom: 15%;
+  z-index: 3;
 }
 
 .move-top-btn i {
@@ -594,6 +651,7 @@ nav::-webkit-scrollbar {
   border: 1px solid #444;
   background-color: #fcfcfc;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .modal-layer {
@@ -630,6 +688,7 @@ nav::-webkit-scrollbar {
   max-width: 50%;
   overflow: scroll;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .place-page-info .place-popularity {
@@ -640,6 +699,10 @@ nav::-webkit-scrollbar {
 .place-page-info .place-address {
   clear: both;
   font-size: 1.1em;
+}
+
+.location-btn {
+  cursor: pointer;
 }
 
 .place-page-info .info-right {
@@ -663,6 +726,7 @@ nav::-webkit-scrollbar {
   overflow: hidden;
   white-space: nowrap;
 }
+
 .place-page-pictures {
   margin-top: 20px;
 }
@@ -674,6 +738,20 @@ nav::-webkit-scrollbar {
 .place-page-pictures img{
   width: 100%;
   border-radius: 20px;
+}
+
+.place-page-map {
+  display: none;
+  width: 100%;
+  height: 25vh;
+  margin-top: 10px;
+  border: 1px solid #444;
+}
+
+.close-map-btn {
+  font-size: 2em;
+  padding-left: 5px;
+  cursor: pointer;
 }
 
 .comments-logo {
@@ -708,6 +786,7 @@ nav::-webkit-scrollbar {
   color: #777;
   left: 7%;
   bottom: 15px;
+  cursor: pointer;
 }
 
 .place-page-comment-input input {
@@ -727,6 +806,7 @@ nav::-webkit-scrollbar {
   border: none;
   border-left: 1px solid #ccc;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .place-page-comment-input button span {
@@ -741,7 +821,7 @@ nav::-webkit-scrollbar {
   padding: 10px 0;
 }
 
-.comments-more-btn button {
+.more-btn button {
   display: block;
   margin: 0 auto;
   padding: 5px 20px;
@@ -749,18 +829,23 @@ nav::-webkit-scrollbar {
   border-radius: 20px;
   color: #777;
   background-color: #efefef;
+  cursor: pointer;
 }
 
 .place-page-comments li {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 15px 0;
+}
+
+#comment-more-btn {
+  margin: 5px 0 15px 0;
 }
 
 .comment-info {
   display: inline-block;
-  max-width: 80%;
+  max-width: 75%;
   border: 1px solid #eef;
   border-radius: 20px;
   padding: 8px 15px;
@@ -777,6 +862,8 @@ nav::-webkit-scrollbar {
 .comment-like {
   display: inline-block;
   margin: 0 5px;
+  cursor: pointer;
+  font-size: 1.2em;
 }
 
 .comment-menu {
@@ -799,3 +886,67 @@ nav::-webkit-scrollbar {
   box-shadow: 1px 1px 2px 1px #ddd;
   font-size: .8em;
 }
+
+/* terms.html */
+.register-wrapper {
+  background-color: #fcfcfc;
+}
+
+.register-page-title {
+  margin-right: auto;
+  margin-left: 10%;
+}
+
+.register-title {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.terms-title {
+  margin: 30px 0;
+  font-size: 2.5em;
+}
+
+.terms-form-wrapper {
+  width: 75%;
+}
+
+.terms-form-wrapper label {
+  font-size: 1.5em;
+}
+
+.terms-form-wrapper td {
+  padding: 5px 0;
+}
+
+.terms {
+  border: 1px solid #ccc;
+  height: 20vh;
+  overflow-y: auto;
+  padding: 5px;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+
+.terms-btn {
+  display: inline-block;
+  margin: 10px 0;
+  margin-right: 12%;
+  margin-left: auto;
+}
+
+.terms-btn button,
+.terms-btn input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 80px;
+  height: 35px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.terms-btn button {
+  background-color: #fcfcfc;
+}
+
+

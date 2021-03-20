@@ -1,32 +1,48 @@
 // 실시간 검색어
 $(function () {
-  var ticker = function () {
-    setTimeout(function () {
-      $('#ticker li:first').animate({ marginTop: '-20px' }, 400, function () {
-        $(this).detach().appendTo('ul#ticker').removeAttr('style');
-      });
-      ticker();
-    }, 3000);
-  };
   ticker();
-
+  revScroll();
+  hoverRank();
+  toggleSearch();
   $('img[usemap]').rwdImageMaps();
-  
-  // 즐겨찾기 토글
-  $("span").click(function () {
-    $("#fav-btn", this).toggleClass("far fas");
-  });
+});
 
-  // 좋아요 토글
-  $("span").click(function () {
-    $("#like-btn", this).toggleClass("like-btn like-btn-clicked");
-  });
+function init() {
+  $('img[usemap]').rwdImageMaps();
+}
 
-  $("span").click(function () {
-    $("#like-btn", this).toggleClass("far fas");
-  });
+// 오버시 이미지 교체 함수
+function changeImg(img) {
+  var mapimg = document.getElementById('map');
+  mapimg.src = img;
+}
 
-  // 스크롤 방향 변경 함수
+function changeImg1(obj, img) {
+  var mapimg1 = document.getElementById('map1');
+  mapimg1.src = img;
+}
+
+// 모두 선택, 해제 함수
+function selectAll(selectAll) {
+  const checkboxes
+    = document.getElementsByName('agree');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  })
+}
+
+// 실시간 검색어 스크롤
+var ticker = function () {
+  setTimeout(function () {
+    $('#ticker li:first').animate({ marginTop: '-20px' }, 400, function () {
+      $(this).detach().appendTo('ul#ticker').removeAttr('style');
+    });
+    ticker();
+  }, 3000);
+};
+
+function revScroll() {
   $("nav").mousewheel(function (event, delta) {
 
     this.scrollLeft -= (delta * 0.5);
@@ -34,7 +50,9 @@ $(function () {
     event.preventDefault();
 
   });
+}
 
+function hoverRank() {
   if($(window).width() > 767) {
     $(".chart").mouseenter(function() {
       $(".popup").css("display", "block");
@@ -60,28 +78,20 @@ $(function () {
         }
     });
   }
-
-});
-
-// 오버시 이미지 교체 함수
-function changeImg(img) {
-  var mapimg = document.getElementById('map');
-  mapimg.src = img;
 }
 
-function changeImg1(obj, img) {
-  var mapimg1 = document.getElementById('map1');
-  mapimg1.src = img;
+function toggleSearch() {
+  $(".main-btm").click(function() {
+    var bar = $(".search-wrapper");
+    var map = $(".search-map-wrapper");
+
+    if(bar.css("display") != "none") {
+      bar.css("display", "none");
+      map.css("display", "block");
+    } else {
+      bar.css("display", "flex");
+      map.css("display", "none");
+    }
+    init();
+  });
 }
-
-// 모두 선택, 해제 함수
-function selectAll(selectAll) {
-  const checkboxes
-    = document.getElementsByName('consent');
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.checked = selectAll.checked;
-  })
-}
-
-

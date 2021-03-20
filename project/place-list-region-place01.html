@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
   <link rel="stylesheet" href="css/style-tmp.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a834c3a4d42546169a95c60ece44916d"></script>
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
   <script src='js/jquery.mousewheel.js'></script>
   <script>
@@ -57,10 +58,32 @@
         event.preventDefault();
       });
 
-      $(".comments-more-btn button").click(function() {
+      $("#comment-more-btn").click(function() {
         $(".place-page-comments > ul > li").each(function() {
-          $(".place-page-comments > ul").prepend($(this).clone());
+          $(".place-page-comments > ul").prepend($(this).clone().fadeIn().css("transition", ".8s ease"));
         });
+        init();
+      });
+      
+      var pic = $(".place-page-pictures");
+      var map = $(".place-page-map");
+      var prevBtn = $(".prev-btn");
+
+      $(".location-btn").click(function() {
+        if(pic.css("display") == "block") {
+          pic.css("display", "none");
+          map.css("display", "block");
+          prevBtn.css("display", "inline");
+          showMap();
+        }
+      });
+
+      $(".place-title").click(function() {
+        if(pic.css("display") == "none") {
+          pic.css("display", "block");
+          map.css("display", "none");
+          prevBtn.css("display", "none");
+        }
         init();
       });
 
@@ -118,19 +141,17 @@
     function textScroll() {
       var maxWidth = $(".place-title").width();
       $(".place-title").mouseenter(function() {
-        console.log(maxWidth);
-        var width = $(this).find("span").width();
-        console.log(width);
+        var width = $(".place-title span").width();
         if(width > maxWidth) {
           var diff = width - maxWidth;
-          $(this).find("span").css("margin-left", -diff).css("transition", "1.5s");
+          $(".place-title span").css("margin-left", -diff).css("transition", "1.5s");
         }
       });
     }
 
     function textScrollBack() {
       $(".place-title").mouseleave(function() {
-        $(this).find("span").css("margin-left", 0);
+        $(".place-title span").css("margin-left", 0);
       });
     }
 
@@ -202,10 +223,34 @@
           $(this).find(".comment-menu-list").css("display", "block");
         });
       }
+    }
 
+    function showMap() {
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+      mapOption = {
+        center: new kakao.maps.LatLng(37.5774015628117, 126.9769398201679), // 지도의 중심좌표
+        level: 5 // 지도의 확대 레벨
+      };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+      // 마커가 표시될 위치입니다 
+      var markerPosition = new kakao.maps.LatLng(37.5774015628117, 126.9769398201679);
+
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({
+        position: markerPosition
+      });
+
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+      map.relayout();
+
+      // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+      // marker.setMap(null);    
     }
   </script>
-  <title>Document</title>
+  <title>Place now</title>
 </head>
 
 <body>
@@ -244,9 +289,7 @@
       <div class="place-page-info">
         <div class="info-left">
           <div class="place-title">
-            <a href="#">
-              <span>경복궁</span>
-            </a>
+            <span>경복궁</span>
           </div>
           <div class="place-popularity">
             <div class="congestion">
@@ -261,7 +304,7 @@
           </div>
           <div class="place-address">
             <span>서울특별시 종로구 사직로 161</span>
-            <a href="#"><b>위치보기</b></a>
+            <span class="location-btn"><b>위치보기</b></span>
           </div>
         </div>
         <div class="info-right">
@@ -287,13 +330,15 @@
           </div>
         </div>  
       </div>
+      
+      <div class="place-page-map" id="map"></div>
 
       <div class="comments-logo">
         <span>NOW</span>
         <i class="fas fa-broadcast-tower"></i>
       </div>
       <div class="place-page-comments">
-        <div class="comments-more-btn">
+        <div class="more-btn" id="comment-more-btn">
           <button>더보기</button>
         </div>
         <ul>
@@ -508,6 +553,9 @@
           </li>
         </ul>
       </div>
+    </div>
+    <div class="move-top-btn" id="place-page-move-top-btn">
+      <a href="" id="move-top-btn"><i class="fas fa-chevron-up"></i></a>
     </div>
     <div class="place-page-comment-input">
       <div class="emoji-btn">
